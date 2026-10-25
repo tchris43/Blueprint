@@ -1,0 +1,35 @@
+diff --git a/account/user.ts b/account/user.ts
+index ae095af..0c26fdc 100644
+--- a/account/user.ts
++++ b/account/user.ts
+@@ -14,10 +14,7 @@ export function signOut(): void {
+   signedInUser = undefined;
+ }
+ 
+-/** Returns the signed-in customer. Throws if nobody is signed in. */
+-export function getUser(): User {
+-  if (!signedInUser) {
+-    throw new Error("No one is signed in");
+-  }
+-  return signedInUser;
++/** Returns the signed-in customer, or null for a guest. */
++export function getUser(): User | null {
++  return signedInUser ?? null;
+ }
+diff --git a/auth/login.ts b/auth/login.ts
+index 6cf6a7d..41725fd 100644
+--- a/auth/login.ts
++++ b/auth/login.ts
+@@ -9,9 +9,9 @@ export class NotSignedInError extends Error {
+ 
+ /** Call at the top of any page that needs a signed-in customer. */
+ export function requireLogin(): User {
+-  try {
+-    return getUser();
+-  } catch {
++  const user = getUser();
++  if (!user) {
+     throw new NotSignedInError();
+   }
++  return user;
+ }

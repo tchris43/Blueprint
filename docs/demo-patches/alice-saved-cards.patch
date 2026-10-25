@@ -1,0 +1,36 @@
+diff --git a/checkout/order.ts b/checkout/order.ts
+index ddbae93..c03c53e 100644
+--- a/checkout/order.ts
++++ b/checkout/order.ts
+@@ -1,4 +1,6 @@
+ import { chargeCard, type Card } from "../payments/charge";
++import { saveCard } from "../payments/saveCard";
++import { getUser } from "../account/user";
+ 
+ export type CartItem = {
+   sku: string;
+@@ -42,5 +44,7 @@ export function placeOrder(cart: Cart, card: Card, receiptEmail: string): Order
+     receiptEmail,
+   };
+ 
++  saveCard(getUser().id, card);
++
+   return order;
+ }
+diff --git a/payments/saveCard.ts b/payments/saveCard.ts
+new file mode 100644
+index 0000000..15e7fed
+--- /dev/null
++++ b/payments/saveCard.ts
+@@ -0,0 +1,11 @@
++import type { Card } from "./charge";
++
++export type SavedCard = { last4: string; expMonth: number; expYear: number; token: string };
++
++const savedCards = new Map<string, SavedCard[]>();
++
++export function saveCard(userId: string, card: Card): void {
++  const list = savedCards.get(userId) ?? [];
++  list.push({ last4: card.number.slice(-4), expMonth: card.expMonth, expYear: card.expYear, token: `tok_${list.length + 1}` });
++  savedCards.set(userId, list);
++}
