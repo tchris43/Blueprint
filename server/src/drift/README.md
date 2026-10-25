@@ -24,7 +24,7 @@ it in yellow so Alice can keep it or remove it.
 The full rules are in the comment above the function.
 
 ## Steps
-1. Read `detectDrift.ts` and `detectDrift.test.ts`. Say out loud what each test checks.
+1. Read `detectDrift.ts` and `detectDrift.test.ts`, and note what each test checks.
 2. Make the first test pass: return an empty list when everything was planned.
 3. Loop over each person in `edits`, then over each file they touched.
 4. If the file isn't in *that person's* plan, add a drift entry.
@@ -38,4 +38,4 @@ pnpm test:drift
 ## You're done when…
 - [ ] All 8 tests pass
 - [ ] You didn't change the test file
-- [ ] You can explain your function in 2–3 sentences without notes (you'll present it!)
+- [ ] You can explain the function in 2 minutes without notes (you present it at the final demo)

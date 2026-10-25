@@ -21,5 +21,5 @@ import type { Drift } from "../../../shared/contract";
  *   → [{ id: "d1", participant: "alice", file: "payments/cardCache.ts", reason: "Not in alice's plan" }]
  */
 export function detectDrift(intents: Record<string, string[]>, edits: Record<string, string[]>): Drift[] {
-  throw new Error("TODO: partner 3 writes this. See README.md in this folder.");
+  throw new Error("TODO: see README.md in this folder");
 }

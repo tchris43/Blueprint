@@ -37,5 +37,5 @@ export type IstanbulSummary = Record<string, FileCoverage>;
  *   → { "account/user.ts#getUser": 88 }
  */
 export function mapCoverage(coverageJson: IstanbulSummary, nodes: MapNode[]): Record<string, number> {
-  throw new Error("TODO: partner 3 writes this. See README.md in this folder.");
+  throw new Error("TODO: see README.md in this folder");
 }

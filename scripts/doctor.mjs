@@ -42,7 +42,7 @@ check("dependencies installed", installed, "Run: pnpm install");
 
 if (installed) {
   check("contract tests run and pass", run("pnpm check:contract") !== null, "Run `pnpm check:contract` and send Taylor the output");
-  // The board tests fail on purpose until partner 2's tasks are done; we only check they RUN.
+  // The board tests fail on purpose until the board-web tickets are done; we only check they RUN.
   const boardTests = runAnyway("pnpm --filter @blueprint/board-web exec vitest run");
   check("board tests run (failing is OK at the start)", /Tests\s+.*\d+/.test(boardTests.output), "Run `pnpm test:board` and send Taylor the output");
 }

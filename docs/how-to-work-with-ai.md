@@ -1,30 +1,28 @@
-# How to work with AI on this project
+# Working with AI tools on this project
 
-You'll be building real parts of the demo, and an AI assistant can help a lot. The goal is that
-**you** understand and can present what you built, so use the AI as a tutor, not a ghostwriter.
+AI assistants are welcome on every ticket. The bar is the same with or without one: whoever owns a
+ticket understands what they shipped and can present it in 2 minutes.
 
-## Which AI?
-Anything works: Claude Code, Cursor, GitHub Copilot Chat (free with the
-[Student Developer Pack](https://education.github.com/pack)), or claude.ai / ChatGPT in a browser.
-No AI at all is fine too. Every folder's `README.md` has the steps written out.
+## Which tool
+Any of these works: Claude Code, Cursor, GitHub Copilot Chat (free with the
+[GitHub Student Developer Pack](https://education.github.com/pack)), or claude.ai / ChatGPT in a browser.
+Every folder's `README.md` and every ticket list the steps in full, so working without one is fine too.
 
-Claude Code and Cursor automatically read the `AGENTS.md` rules in your folder. With a browser
-chat, paste in the folder's `AGENTS.md` and `README.md` first.
+Claude Code and Cursor read each folder's `AGENTS.md` automatically. With a browser chat, paste in
+the root `AGENTS.md`, the folder's `AGENTS.md`, and your ticket first.
 
-## Starting prompt (copy and paste this)
+## Starting prompt (copy and paste)
 
-> Read CLAUDE.md and README.md in this folder. Explain what this module does and your plan before
-> writing code. Then help me make the tests pass one at a time. Don't edit the tests.
+> Read AGENTS.md, the README.md in this folder, and my ticket (tickets/NNN-….md). Explain what this
+> piece does and your plan before writing code. Then help me make the tests pass one at a time.
+> Don't edit the tests.
 
-For a board task, swap "README.md in this folder" for the task file, e.g. `tasks/board/1-render-nodes-and-edges.md`.
-
-## Good habits
-- **Ask "why" a lot.** "Why a Set here instead of an array?" is a great question.
-- **Type it yourself** when you can. You'll remember it, and you'll be able to explain it at the pitch.
-- **One test at a time.** Get one test green, commit, then move to the next.
-- **Read the error message first**, before asking. Then paste the exact error into the chat.
-- **If the AI wants to change a test file, say no.** The tests are the definition of done. If one
-  looks wrong, ask Taylor.
+## Habits that work well
+- **Ask why.** "Why a Set here instead of an array?" The answer is what you'll need in the 2-minute explain-back.
+- **Write or edit the key lines yourself.** It's the fastest way to be sure you can explain them.
+- **One test at a time.** Get one test green, commit, then move on.
+- **Read the error message first**, then paste the exact text into the chat.
+- **If the AI wants to change a test file, stop.** Tests define done. If one looks wrong, raise it with the team.
 
 ## When you're stuck
 See [workflow.md](workflow.md#when-youre-stuck).

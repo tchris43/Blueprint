@@ -13,4 +13,4 @@
 - [ ] `pnpm dev:board` shows boxes in columns, joined by lines (the boxes stay blank until task 2)
 - [ ] Changing the scene in the dropdown changes the map
 
-**Hint:** React Flow's [quickstart](https://reactflow.dev/learn) shows the `nodes` and `edges` arrays it expects. Your two functions just build those arrays from our data. Pass `nodeTypes={{ board: BoardNode }}` so each box uses our `BoardNode`. React Flow needs a parent with a real height, or the map renders 0px tall.
+**Hint:** React Flow's [quickstart](https://reactflow.dev/learn) shows the `nodes` and `edges` arrays it expects. The two functions build those arrays from our data. Pass `nodeTypes={{ board: BoardNode }}` so each box uses our `BoardNode`. React Flow needs a parent with a real height, or the map renders 0px tall.

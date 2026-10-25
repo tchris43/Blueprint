@@ -1,6 +1,6 @@
 # docs
 
-Owner: partner 3, except where noted. No coding needed; you can edit these right on GitHub.
+Owned by the `demo-pitch` ticket owners, except where noted. These are plain markdown, so editing them on GitHub works fine.
 
 - `demo-script.md`: what we say and click, scene by scene
 - `pitch-outline.md`: the 3-minute pitch
@@ -9,4 +9,4 @@ Owner: partner 3, except where noted. No coding needed; you can edit these right
 - `demo-patches/`: Alice's and Bob's demo changes as patches for demo-shop (Taylor). Kept here so the demo agents never see them
 - `how-to-work-with-ai.md`, `workflow.md`: how the team works
 - `integration.md`: where each module plugs into the server (Taylor)
-- `../shared/labels.json`: the plain-English names in the Product view. Partner 3 owns this file too.
+- `../shared/labels.json`: the plain-English names in the Product view (ticket 043).

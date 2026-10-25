@@ -1,6 +1,7 @@
-# Board tasks (partner 2)
+# Web board task guides
 
-Do them in order. Each one is small, and each makes the board look more like the mockup.
+Step-by-step guides for the `board-web` tickets (030–032 in `tickets/`). Do them in order; each one
+brings the board closer to the mockup.
 
 | # | Task | Tests |
 |---|---|---|
@@ -11,7 +12,7 @@ Do them in order. Each one is small, and each makes the board look more like the
 | 5 | [Decision buttons](5-decision-buttons.md) | manual check |
 | 6 | [History panel](6-history-panel.md) | manual check, plus your own test |
 | 7 | [Go live](7-live-websocket.md) | manual check |
-| 8 | [Lucid spike, 2 hours max](8-lucid-spike.md) | write up `lucid-findings.md` |
+| 8 | [Lucid spike](8-lucid-spike.md) | **done**: see `LUCID-FINDINGS.md` in the spike, and tickets 020–028 |
 
 Run `pnpm test:board` for tests and `pnpm dev:board` to look at it (http://localhost:5173).
 The mockup is a guide to **behavior and layout, not pixels**.

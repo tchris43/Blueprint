@@ -9,7 +9,7 @@ away that `cardCache.ts` has 0% and `AccountPage` only 40%.
 `mapCoverage(coverageJson, nodes)` in `mapCoverage.ts`
 
 **Input 1: `coverageJson`**, the report vitest writes to `coverage/coverage-summary.json`.
-A small example is in `fixtures/coverage-summary.json`. Open it! Each key is a full file path:
+A small example is in `fixtures/coverage-summary.json`; read it before starting. Each key is a full file path:
 ```js
 { "/home/alice/demo-shop/account/user.ts": { lines: { pct: 87.5, ... }, ... }, ... }
 ```
@@ -38,4 +38,4 @@ pnpm test:coverage
 ## You're done when…
 - [ ] All 8 tests pass
 - [ ] You didn't change the test file
-- [ ] You can explain your function in 2–3 sentences without notes
+- [ ] You can explain the function in 2 minutes without notes (you present it at the final demo)

@@ -3,7 +3,7 @@
 A shared, live map of a codebase that catches the moment one teammate's AI agent breaks another's
 work, and brings in the right people to decide. Hackathon project. See `AGENTS.md` for the full idea.
 
-This guide assumes you've never set up a project like this before. Go step by step.
+Setup takes about 15 minutes. Do the steps in order; each one depends on the one before.
 
 ## 1. Install the tools (once per computer)
 
@@ -42,7 +42,7 @@ pnpm doctor
 pnpm dev:board
 ```
 Open http://localhost:5173. Press Ctrl+C in the terminal to stop it.
-At the start it's a plain list. Partner 2's tasks (`tasks/board/`) turn it into the map.
+At the start it's a plain list of the sample data. The `board-web` tickets turn it into the map.
 
 ## 4. Run the server
 
@@ -63,14 +63,14 @@ See [hooks/README.md](hooks/README.md). In short: copy `hooks/example-settings.j
 
 ## 6. How we work: branches and pull requests
 
-Never work on `main` directly.
+Work comes from [tickets/](tickets/README.md). Claim one, then work on a branch named after you and the ticket. Never work on `main` directly.
 ```
-git checkout -b partner3/drift      # your-name/what-you're-doing
+git checkout -b sam/040                # <your-name>/<ticket-number>
 # ...make changes...
-pnpm test                           # must pass before you push
+pnpm test                              # must pass before you push
 git add -A
-git commit -m "drift: what you did"
-git push -u origin partner3/drift
+git commit -m "040: flag files that weren't in the plan"
+git push -u origin sam/040
 ```
 Then open a pull request on GitHub. Taylor reviews and merges it. Full details are in [docs/workflow.md](docs/workflow.md).
 
@@ -83,20 +83,21 @@ Then open a pull request on GitHub. Taylor reviews and merges it. Full details a
 | `pnpm server` | Run the Blueprint server |
 | `pnpm test` | Run the tests for finished work. **Must pass before every push.** |
 | `pnpm test:todo` | Run every teammate task's tests. These fail on purpose until each task is done. |
-| `pnpm test:board` | Partner 2's board tests only |
-| `pnpm test:drift` / `test:coverage` / `test:explain` | One of partner 3's modules only |
+| `pnpm test:board` | The web board's tests only |
+| `pnpm test:drift` / `test:coverage` / `test:explain` | One module's tests only |
 | `pnpm test:engine` | The combined-check tests only (needs `demo-shop` next to this repo) |
 | `pnpm check:contract` | Check the shared data still matches the contract |
 
 ## Where things are
 
-| Folder | What | Who |
+| Folder | What | Ticket area |
 |---|---|---|
-| `shared/` | The contract (data shapes), sample data, plain-English labels | Taylor (labels: partner 3) |
-| `server/` | The engine | Taylor; `drift/`, `coverage/`, `explain/`: partner 3 |
-| `hooks/` | Claude Code ↔ Blueprint | Taylor |
-| `board/` | The visual map (web + Lucid) | Partner 2 |
-| `tasks/board/` | Partner 2's task list | Partner 2 |
-| `docs/` | Demo script, pitch, competitors, mockups, guides | Partner 3 |
+| `tickets/` | The backlog: every piece of remaining work, with owners | all |
+| `shared/` | The contract (data shapes), sample data, plain-English labels | `server` (labels: `modules`) |
+| `server/` | The engine; `src/drift`, `src/coverage`, `src/explain` are modules | `server`, `modules` |
+| `hooks/` | Claude Code ↔ Blueprint | `server` |
+| `board/` | The visual map (web + Lucid) | `board-web`, `board-lucid` |
+| `tasks/board/` | Step-by-step guides for the web board tickets | `board-web` |
+| `docs/` | Demo script, pitch, competitors, mockups, guides | `demo-pitch` |
 
-New to working with AI? Read [docs/how-to-work-with-ai.md](docs/how-to-work-with-ai.md).
+Team working rules (with or without AI) are in [AGENTS.md](AGENTS.md#working-rules-everyone-every-folder-with-or-without-ai); tips for AI tools are in [docs/how-to-work-with-ai.md](docs/how-to-work-with-ai.md).

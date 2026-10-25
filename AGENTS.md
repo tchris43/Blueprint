@@ -41,16 +41,21 @@ Claude Code (Bob)   --hooks-->       |
 ```
 
 ## Who owns what
-| Area | Owner |
-|---|---|
-| `server/` engine, `hooks/`, wiring, `shared/contract.ts` | Taylor |
-| `board/web`, `board/lucid-extension` (`tasks/board/`) | Partner 2 |
-| `server/src/drift`, `server/src/coverage`, `server/src/explain`, `shared/labels.json`, `docs/` | Partner 3 |
+Work is split into tickets by area: `server`, `board-lucid`, `board-web`, `modules`, `demo-shop`,
+`demo-pitch`. Each ticket's owner is listed in `tickets/README.md`. Core server work
+(`server/`, `hooks/`, `shared/contract.ts`) is Taylor's.
 
-## Rules
-- **Never change `shared/contract.ts` or `shared/schema.ts` without telling the team.** `pnpm check:contract` guards them.
-- Never edit someone else's tests to make them pass. If a test seems wrong, stop and say so.
+## Working rules (everyone, every folder, with or without AI)
+1. **Explain the plan before writing code.** Say in plain words what you'll change and why, and
+   wait for the person you're working with to agree.
+2. **Work in small steps, and run the folder's tests after each one.** Each folder's `AGENTS.md`
+   names its test command.
+3. **Don't edit tests or anything in `shared/` without telling the team.** Tests define what
+   "done" means, and other people's code depends on `shared/`. If a test looks wrong, say why and stop.
+4. **Be able to explain your piece in 2 minutes.** Every ticket ends with a 2-minute explain-back,
+   and whoever owns a piece presents it at the final demo.
+
+## Also
 - Prefer boring, simple code. Don't build auth, databases, deployment, or non-TypeScript support.
 - Work on a branch and merge by pull request (`docs/workflow.md`).
-- Folders with a beginner `AGENTS.md` (`board/`, `server/src/drift|coverage|explain`): explain your plan first and wait for agreement.
 - Package manager is pnpm. Run `pnpm doctor` if setup seems off.

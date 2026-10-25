@@ -9,7 +9,7 @@ Priya (the PM) needs to read:
 > Saved cards assumes every buyer has an account. Guest checkout removes that.
 > **Can guests save cards?**  [No — offer guests "Create an account…"]  [Yes — save it against a verified email]
 
-Your function asks Claude to do that translation. **You write the prompt.** That's the creative part, and you'll present it.
+This function asks Claude to do that translation. **The prompt is the ticket owner's to write**, and it's the part you present at the final demo.
 
 ## The function
 `explainConflict(evidence, labels, callModel?)` in `explainConflict.ts`
@@ -36,7 +36,7 @@ The demo must never break because of this function.
 4. Call `callModel(prompt)`, then `JSON.parse` the reply inside `try { } catch { }`.
 5. Check the shape (2–3 options, nothing empty). Bad shape → fallback.
 6. Last, the edge case: strip a ```` ```json ```` wrapper before parsing.
-7. Bonus: with a real key in your terminal (`ANTHROPIC_API_KEY`, ask Taylor), try your prompt on the real demo conflict and tune the wording.
+7. Then, with a real key in your terminal (`ANTHROPIC_API_KEY`, ask Taylor), try your prompt on the real demo conflict and tune the wording.
 
 ## Run only these tests
 ```
@@ -46,4 +46,4 @@ pnpm test:explain
 ## You're done when…
 - [ ] All 9 tests pass
 - [ ] You didn't change the test file
-- [ ] You can explain your prompt and why it's worded that way, in 2–3 sentences
+- [ ] You can explain the prompt and why it's worded that way in 2 minutes (you present it at the final demo)

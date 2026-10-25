@@ -11,7 +11,7 @@ import { DEMO_FALLBACK, genericFallback, isDemoConflict, type PlainQuestion } fr
  *
  * Steps:
  * 1. If there is no ANTHROPIC_API_KEY, don't call Claude. Return the fallback (step 5).
- * 2. Write a prompt (YOUR prompt — this is the creative part) that includes the evidence:
+ * 2. Write a prompt (the ticket owner's own wording) that includes the evidence:
  *    the compiler error, the line that broke, the symbol that changed, and the plain-English
  *    names from `labels` so the answer uses words a non-programmer knows.
  *    Ask Claude to reply with ONLY JSON shaped like PlainQuestion.
@@ -28,7 +28,7 @@ export async function explainConflict(
   labels: LabelsFile,
   callModel: CallModel = realCallModel,
 ): Promise<PlainQuestion> {
-  throw new Error("TODO: partner 3 writes this. See README.md in this folder.");
+  throw new Error("TODO: see README.md in this folder");
 }
 
 // These imports are here for you to use. (Delete this line when you use them.)

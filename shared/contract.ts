@@ -103,7 +103,7 @@ export type SampleScene = {
 
 export type SampleStateFile = { scenes: SampleScene[] };
 
-// ---- plain-English labels (shared/labels.json, written by partner 3) ----
+// ---- plain-English labels (shared/labels.json, ticket 043) ----
 
 export type LabelsFile = {
   columns: Record<string, string>; // folder -> product-view heading
