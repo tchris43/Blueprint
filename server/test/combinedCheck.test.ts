@@ -40,7 +40,7 @@ describe.skipIf(!existsSync(join(DEMO_SHOP_DIR, "node_modules")))("runCombinedCh
       affected: "alice",
       changedSymbol: "getUser",
       affectedCode: "saveCard(getUser().id, card);",
-      error: { file: "checkout/order.ts", line: 42, code: "TS2531" },
+      error: { file: "checkout/order.ts", line: 47, code: "TS2531" },
     });
   }, 60_000);
 

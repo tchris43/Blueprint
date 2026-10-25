@@ -1,5 +1,4 @@
 import { getUser, type User } from "../account/user";
-import { isGuestSession } from "./guest";
 
 export class NotSignedInError extends Error {
   constructor() {
@@ -15,9 +14,4 @@ export function requireLogin(): User {
     throw new NotSignedInError();
   }
   return user;
-}
-
-/** SHOP-219: checkout lets guests through; everything else still needs a sign-in. */
-export function requireLoginOrGuest(): User | "guest" {
-  return isGuestSession() ? "guest" : requireLogin();
 }

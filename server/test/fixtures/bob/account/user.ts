@@ -14,7 +14,7 @@ export function signOut(): void {
   signedInUser = undefined;
 }
 
-/** SHOP-219: returns the signed-in customer, or null for a guest. */
+/** Returns the signed-in customer, or null for a guest. */
 export function getUser(): User | null {
   return signedInUser ?? null;
 }

@@ -1,6 +1,6 @@
-import { getUser } from "../account/user";
 import { chargeCard, type Card } from "../payments/charge";
-import { saveCard } from "../payments/vault";
+import { saveCard } from "../payments/saveCard";
+import { getUser } from "../account/user";
 
 export type CartItem = {
   sku: string;
@@ -36,11 +36,6 @@ export function placeOrder(cart: Cart, card: Card, receiptEmail: string): Order 
   const totalCents = cartTotalCents(cart);
   const charge = chargeCard(card, totalCents);
 
-  // SHOP-212: remember the card for next time.
-  // Only reached after the charge succeeds, so we never save a declined card.
-  // The customer comes from the current session.
-  saveCard(getUser().id, card);
-
   const order: Order = {
     id: `ord_${nextOrderNumber++}`,
     items: cart.items,
@@ -48,6 +43,8 @@ export function placeOrder(cart: Cart, card: Card, receiptEmail: string): Order 
     chargeId: charge.id,
     receiptEmail,
   };
+
+  saveCard(getUser().id, card);
 
   return order;
 }
