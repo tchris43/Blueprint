@@ -1,0 +1,20 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [{ "type": "command", "command": "node /ABSOLUTE/PATH/TO/blueprint/hooks/pre-tool-use.mjs", "timeout": 10 }]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [{ "type": "command", "command": "node /ABSOLUTE/PATH/TO/blueprint/hooks/post-tool-use.mjs", "timeout": 30 }]
+      }
+    ]
+  },
+  "env": {
+    "BLUEPRINT_PARTICIPANT": "alice",
+    "BLUEPRINT_SERVER": "http://localhost:4000"
+  }
+}

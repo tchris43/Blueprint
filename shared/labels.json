@@ -1,0 +1,17 @@
+{
+  "columns": {
+    "auth": "TODO",
+    "checkout": "TODO",
+    "account": "TODO",
+    "payments": "TODO"
+  },
+  "nodes": {
+    "account/user.ts#getUser": { "plainName": "TODO", "plainDesc": "TODO" },
+    "account/AccountPage.ts": { "plainName": "TODO", "plainDesc": "TODO" },
+    "auth/login.ts#requireLogin": { "plainName": "TODO", "plainDesc": "TODO" },
+    "checkout/order.ts#placeOrder": { "plainName": "TODO", "plainDesc": "TODO" },
+    "checkout/order.ts#cartTotalCents": { "plainName": "TODO", "plainDesc": "TODO" },
+    "checkout/CheckoutPage.ts": { "plainName": "TODO", "plainDesc": "TODO" },
+    "payments/charge.ts#chargeCard": { "plainName": "TODO", "plainDesc": "TODO" }
+  }
+}

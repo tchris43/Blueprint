@@ -1,0 +1,22 @@
+{
+  "name": "blueprint",
+  "private": true,
+  "packageManager": "pnpm@12.15.0",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "doctor": "node scripts/doctor.mjs",
+    "server": "pnpm --filter @blueprint/server dev",
+    "dev:board": "pnpm --filter @blueprint/board-web dev",
+    "test": "pnpm -r --no-bail test",
+    "typecheck": "pnpm -r typecheck",
+    "check:contract": "pnpm --filter @blueprint/shared test",
+    "test:drift": "pnpm --filter @blueprint/server exec vitest run src/drift",
+    "test:coverage": "pnpm --filter @blueprint/server exec vitest run src/coverage",
+    "test:explain": "pnpm --filter @blueprint/server exec vitest run src/explain",
+    "test:engine": "pnpm --filter @blueprint/server exec vitest run test/",
+    "test:board": "pnpm --filter @blueprint/board-web test",
+    "sample-state": "node shared/make-sample-state.mjs"
+  }
+}

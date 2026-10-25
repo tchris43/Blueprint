@@ -1,0 +1,2973 @@
+{
+  "scenes": [
+    {
+      "id": "scene-0",
+      "title": "Two tickets",
+      "narration": "Agents write code in minutes. The team usually finds out what they built at code review. Here's an online store with two harmless-looking tickets.",
+      "state": {
+        "participants": [
+          {
+            "id": "priya",
+            "name": "Priya",
+            "role": "pm",
+            "color": "#6d28d9"
+          },
+          {
+            "id": "alice",
+            "name": "Alice",
+            "role": "dev",
+            "color": "#2563eb",
+            "ticket": "SHOP-212"
+          },
+          {
+            "id": "bob",
+            "name": "Bob",
+            "role": "dev",
+            "color": "#c2410c",
+            "ticket": "SHOP-219"
+          },
+          {
+            "id": "sam",
+            "name": "Sam",
+            "role": "dev",
+            "color": "#0f766e",
+            "ticket": "SHOP-230"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "checkout/CheckoutPage.ts",
+            "file": "checkout/CheckoutPage.ts",
+            "symbol": "CheckoutPage.ts",
+            "plainName": "Checkout page",
+            "plainDesc": "Where buyers pay",
+            "column": "checkout",
+            "x": 0,
+            "y": 0,
+            "status": "existing",
+            "coverage": 72,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "checkout/order.ts#placeOrder",
+            "file": "checkout/order.ts",
+            "symbol": "placeOrder()",
+            "plainName": "Place the order",
+            "plainDesc": "Turns a cart into an order",
+            "column": "checkout",
+            "x": 0,
+            "y": 110,
+            "status": "existing",
+            "coverage": 91,
+            "history": []
+          },
+          {
+            "id": "auth/login.ts#requireLogin",
+            "file": "auth/login.ts",
+            "symbol": "requireLogin()",
+            "plainName": "Sign-in check",
+            "plainDesc": "Makes sure you're signed in",
+            "column": "auth",
+            "x": 240,
+            "y": 0,
+            "status": "existing",
+            "coverage": 64,
+            "history": []
+          },
+          {
+            "id": "account/AccountPage.ts",
+            "file": "account/AccountPage.ts",
+            "symbol": "AccountPage.ts",
+            "plainName": "Your Account page",
+            "plainDesc": "Profile and settings",
+            "column": "account",
+            "x": 480,
+            "y": 0,
+            "status": "existing",
+            "coverage": 40,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "account/user.ts#getUser",
+            "file": "account/user.ts",
+            "symbol": "getUser()",
+            "plainName": "Who's buying",
+            "plainDesc": "Looks up the signed-in buyer",
+            "column": "account",
+            "x": 480,
+            "y": 110,
+            "status": "existing",
+            "coverage": 88,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Long-standing code: returns the signed-in buyer, throws if nobody is signed in"
+              }
+            ]
+          },
+          {
+            "id": "payments/charge.ts#chargeCard",
+            "file": "payments/charge.ts",
+            "symbol": "chargeCard()",
+            "plainName": "Charge the card",
+            "plainDesc": "Sends the payment",
+            "column": "payments",
+            "x": 720,
+            "y": 0,
+            "status": "existing",
+            "coverage": 95,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "checkout/order.ts#placeOrder",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/charge.ts#chargeCard",
+            "kind": "calls"
+          }
+        ],
+        "conflicts": [],
+        "drift": [],
+        "agentStatus": {
+          "alice": "idle",
+          "bob": "idle",
+          "sam": "idle"
+        }
+      }
+    },
+    {
+      "id": "scene-1",
+      "title": "Alice's agent works",
+      "narration": "Alice asks her agent for saved cards. It gets straight to work, and every change shows up live on the team's map.",
+      "state": {
+        "participants": [
+          {
+            "id": "priya",
+            "name": "Priya",
+            "role": "pm",
+            "color": "#6d28d9"
+          },
+          {
+            "id": "alice",
+            "name": "Alice",
+            "role": "dev",
+            "color": "#2563eb",
+            "ticket": "SHOP-212"
+          },
+          {
+            "id": "bob",
+            "name": "Bob",
+            "role": "dev",
+            "color": "#c2410c",
+            "ticket": "SHOP-219"
+          },
+          {
+            "id": "sam",
+            "name": "Sam",
+            "role": "dev",
+            "color": "#0f766e",
+            "ticket": "SHOP-230"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "checkout/CheckoutPage.ts",
+            "file": "checkout/CheckoutPage.ts",
+            "symbol": "CheckoutPage.ts",
+            "plainName": "Checkout page",
+            "plainDesc": "Where buyers pay",
+            "column": "checkout",
+            "x": 0,
+            "y": 0,
+            "status": "existing",
+            "coverage": 72,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "checkout/order.ts#placeOrder",
+            "file": "checkout/order.ts",
+            "symbol": "placeOrder()",
+            "plainName": "Place the order",
+            "plainDesc": "Turns a cart into an order",
+            "column": "checkout",
+            "x": 0,
+            "y": 110,
+            "status": "changing",
+            "owner": "alice",
+            "coverage": 91,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Alice's agent for SHOP-212",
+                "by": "alice"
+              }
+            ]
+          },
+          {
+            "id": "auth/login.ts#requireLogin",
+            "file": "auth/login.ts",
+            "symbol": "requireLogin()",
+            "plainName": "Sign-in check",
+            "plainDesc": "Makes sure you're signed in",
+            "column": "auth",
+            "x": 240,
+            "y": 0,
+            "status": "existing",
+            "coverage": 64,
+            "history": []
+          },
+          {
+            "id": "account/AccountPage.ts",
+            "file": "account/AccountPage.ts",
+            "symbol": "AccountPage.ts",
+            "plainName": "Your Account page",
+            "plainDesc": "Profile and settings",
+            "column": "account",
+            "x": 480,
+            "y": 0,
+            "status": "existing",
+            "coverage": 40,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "account/user.ts#getUser",
+            "file": "account/user.ts",
+            "symbol": "getUser()",
+            "plainName": "Who's buying",
+            "plainDesc": "Looks up the signed-in buyer",
+            "column": "account",
+            "x": 480,
+            "y": 110,
+            "status": "existing",
+            "coverage": 88,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Long-standing code: returns the signed-in buyer, throws if nobody is signed in"
+              }
+            ]
+          },
+          {
+            "id": "account/SavedCardsList.ts",
+            "file": "account/SavedCardsList.ts",
+            "symbol": "SavedCardsList.ts",
+            "plainName": "Saved cards list",
+            "plainDesc": "Shows a buyer's saved cards",
+            "column": "account",
+            "x": 480,
+            "y": 220,
+            "status": "in_progress",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 70,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              }
+            ]
+          },
+          {
+            "id": "payments/charge.ts#chargeCard",
+            "file": "payments/charge.ts",
+            "symbol": "chargeCard()",
+            "plainName": "Charge the card",
+            "plainDesc": "Sends the payment",
+            "column": "payments",
+            "x": 720,
+            "y": 0,
+            "status": "existing",
+            "coverage": 95,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "payments/vault.ts#saveCard",
+            "file": "payments/vault.ts",
+            "symbol": "saveCard()",
+            "plainName": "Remember the card",
+            "plainDesc": "Keeps a card for next time",
+            "column": "payments",
+            "x": 720,
+            "y": 110,
+            "status": "in_progress",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 86,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "checkout/order.ts#placeOrder",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/charge.ts#chargeCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "account/SavedCardsList.ts",
+            "kind": "imports"
+          },
+          {
+            "from": "account/SavedCardsList.ts",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "imports"
+          }
+        ],
+        "conflicts": [],
+        "drift": [],
+        "agentStatus": {
+          "alice": "working",
+          "bob": "idle",
+          "sam": "working"
+        }
+      }
+    },
+    {
+      "id": "scene-2",
+      "title": "Bob's agent works",
+      "narration": "Bob's agent starts on guest checkout at the same time. Nobody is blocked or waiting for approval.",
+      "state": {
+        "participants": [
+          {
+            "id": "priya",
+            "name": "Priya",
+            "role": "pm",
+            "color": "#6d28d9"
+          },
+          {
+            "id": "alice",
+            "name": "Alice",
+            "role": "dev",
+            "color": "#2563eb",
+            "ticket": "SHOP-212"
+          },
+          {
+            "id": "bob",
+            "name": "Bob",
+            "role": "dev",
+            "color": "#c2410c",
+            "ticket": "SHOP-219"
+          },
+          {
+            "id": "sam",
+            "name": "Sam",
+            "role": "dev",
+            "color": "#0f766e",
+            "ticket": "SHOP-230"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "checkout/CheckoutPage.ts",
+            "file": "checkout/CheckoutPage.ts",
+            "symbol": "CheckoutPage.ts",
+            "plainName": "Checkout page",
+            "plainDesc": "Where buyers pay",
+            "column": "checkout",
+            "x": 0,
+            "y": 0,
+            "status": "existing",
+            "coverage": 72,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "checkout/order.ts#placeOrder",
+            "file": "checkout/order.ts",
+            "symbol": "placeOrder()",
+            "plainName": "Place the order",
+            "plainDesc": "Turns a cart into an order",
+            "column": "checkout",
+            "x": 0,
+            "y": 110,
+            "status": "changing",
+            "owner": "alice",
+            "coverage": 91,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Alice's agent for SHOP-212",
+                "by": "alice"
+              }
+            ]
+          },
+          {
+            "id": "auth/login.ts#requireLogin",
+            "file": "auth/login.ts",
+            "symbol": "requireLogin()",
+            "plainName": "Sign-in check",
+            "plainDesc": "Makes sure you're signed in",
+            "column": "auth",
+            "x": 240,
+            "y": 0,
+            "status": "changing",
+            "owner": "bob",
+            "coverage": 64,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Bob's agent for SHOP-219",
+                "by": "bob"
+              }
+            ]
+          },
+          {
+            "id": "auth/guest.ts#createGuestSession",
+            "file": "auth/guest.ts",
+            "symbol": "createGuestSession()",
+            "plainName": "Guest checkout",
+            "plainDesc": "Buy without an account",
+            "column": "auth",
+            "x": 240,
+            "y": 110,
+            "status": "in_progress",
+            "owner": "bob",
+            "isNew": true,
+            "coverage": 82,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Bob's agent for SHOP-219",
+                "by": "bob"
+              }
+            ]
+          },
+          {
+            "id": "account/AccountPage.ts",
+            "file": "account/AccountPage.ts",
+            "symbol": "AccountPage.ts",
+            "plainName": "Your Account page",
+            "plainDesc": "Profile and settings",
+            "column": "account",
+            "x": 480,
+            "y": 0,
+            "status": "existing",
+            "coverage": 40,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "account/user.ts#getUser",
+            "file": "account/user.ts",
+            "symbol": "getUser()",
+            "plainName": "Who's buying",
+            "plainDesc": "Looks up the signed-in buyer",
+            "column": "account",
+            "x": 480,
+            "y": 110,
+            "status": "changing",
+            "owner": "bob",
+            "coverage": 88,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Long-standing code: returns the signed-in buyer, throws if nobody is signed in"
+              },
+              {
+                "at": "2026-10-23T10:12",
+                "text": "Bob's agent changed it to return null for guests (SHOP-219)",
+                "by": "bob"
+              }
+            ]
+          },
+          {
+            "id": "account/SavedCardsList.ts",
+            "file": "account/SavedCardsList.ts",
+            "symbol": "SavedCardsList.ts",
+            "plainName": "Saved cards list",
+            "plainDesc": "Shows a buyer's saved cards",
+            "column": "account",
+            "x": 480,
+            "y": 220,
+            "status": "in_progress",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 70,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              }
+            ]
+          },
+          {
+            "id": "payments/charge.ts#chargeCard",
+            "file": "payments/charge.ts",
+            "symbol": "chargeCard()",
+            "plainName": "Charge the card",
+            "plainDesc": "Sends the payment",
+            "column": "payments",
+            "x": 720,
+            "y": 0,
+            "status": "existing",
+            "coverage": 95,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "payments/vault.ts#saveCard",
+            "file": "payments/vault.ts",
+            "symbol": "saveCard()",
+            "plainName": "Remember the card",
+            "plainDesc": "Keeps a card for next time",
+            "column": "payments",
+            "x": 720,
+            "y": 110,
+            "status": "in_progress",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 86,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "checkout/order.ts#placeOrder",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/charge.ts#chargeCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "account/SavedCardsList.ts",
+            "kind": "imports"
+          },
+          {
+            "from": "account/SavedCardsList.ts",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "imports"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "auth/guest.ts#createGuestSession",
+            "kind": "imports"
+          }
+        ],
+        "conflicts": [],
+        "drift": [],
+        "agentStatus": {
+          "alice": "working",
+          "bob": "working",
+          "sam": "working"
+        }
+      }
+    },
+    {
+      "id": "scene-3",
+      "title": "Collision",
+      "narration": "Bob's agent edits getUser(). Blueprint re-checks everyone's work together and Alice's code now breaks. Only those two agents pause.",
+      "state": {
+        "participants": [
+          {
+            "id": "priya",
+            "name": "Priya",
+            "role": "pm",
+            "color": "#6d28d9"
+          },
+          {
+            "id": "alice",
+            "name": "Alice",
+            "role": "dev",
+            "color": "#2563eb",
+            "ticket": "SHOP-212"
+          },
+          {
+            "id": "bob",
+            "name": "Bob",
+            "role": "dev",
+            "color": "#c2410c",
+            "ticket": "SHOP-219"
+          },
+          {
+            "id": "sam",
+            "name": "Sam",
+            "role": "dev",
+            "color": "#0f766e",
+            "ticket": "SHOP-230"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "checkout/CheckoutPage.ts",
+            "file": "checkout/CheckoutPage.ts",
+            "symbol": "CheckoutPage.ts",
+            "plainName": "Checkout page",
+            "plainDesc": "Where buyers pay",
+            "column": "checkout",
+            "x": 0,
+            "y": 0,
+            "status": "existing",
+            "coverage": 72,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "checkout/order.ts#placeOrder",
+            "file": "checkout/order.ts",
+            "symbol": "placeOrder()",
+            "plainName": "Place the order",
+            "plainDesc": "Turns a cart into an order",
+            "column": "checkout",
+            "x": 0,
+            "y": 110,
+            "status": "conflict",
+            "owner": "alice",
+            "coverage": 91,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Alice's agent for SHOP-212",
+                "by": "alice"
+              }
+            ]
+          },
+          {
+            "id": "auth/login.ts#requireLogin",
+            "file": "auth/login.ts",
+            "symbol": "requireLogin()",
+            "plainName": "Sign-in check",
+            "plainDesc": "Makes sure you're signed in",
+            "column": "auth",
+            "x": 240,
+            "y": 0,
+            "status": "changing",
+            "owner": "bob",
+            "coverage": 64,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Bob's agent for SHOP-219",
+                "by": "bob"
+              }
+            ]
+          },
+          {
+            "id": "auth/guest.ts#createGuestSession",
+            "file": "auth/guest.ts",
+            "symbol": "createGuestSession()",
+            "plainName": "Guest checkout",
+            "plainDesc": "Buy without an account",
+            "column": "auth",
+            "x": 240,
+            "y": 110,
+            "status": "in_progress",
+            "owner": "bob",
+            "isNew": true,
+            "coverage": 82,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Bob's agent for SHOP-219",
+                "by": "bob"
+              }
+            ]
+          },
+          {
+            "id": "account/AccountPage.ts",
+            "file": "account/AccountPage.ts",
+            "symbol": "AccountPage.ts",
+            "plainName": "Your Account page",
+            "plainDesc": "Profile and settings",
+            "column": "account",
+            "x": 480,
+            "y": 0,
+            "status": "existing",
+            "coverage": 40,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "account/user.ts#getUser",
+            "file": "account/user.ts",
+            "symbol": "getUser()",
+            "plainName": "Who's buying",
+            "plainDesc": "Looks up the signed-in buyer",
+            "column": "account",
+            "x": 480,
+            "y": 110,
+            "status": "conflict",
+            "owner": "bob",
+            "coverage": 88,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Long-standing code: returns the signed-in buyer, throws if nobody is signed in"
+              },
+              {
+                "at": "2026-10-23T10:12",
+                "text": "Bob's agent changed it to return null for guests (SHOP-219)",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:12",
+                "text": "Combined type check failed in Alice's checkout/order.ts:42 (SHOP-212 assumed every buyer has an account)"
+              }
+            ]
+          },
+          {
+            "id": "account/SavedCardsList.ts",
+            "file": "account/SavedCardsList.ts",
+            "symbol": "SavedCardsList.ts",
+            "plainName": "Saved cards list",
+            "plainDesc": "Shows a buyer's saved cards",
+            "column": "account",
+            "x": 480,
+            "y": 220,
+            "status": "in_progress",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 70,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              }
+            ]
+          },
+          {
+            "id": "payments/charge.ts#chargeCard",
+            "file": "payments/charge.ts",
+            "symbol": "chargeCard()",
+            "plainName": "Charge the card",
+            "plainDesc": "Sends the payment",
+            "column": "payments",
+            "x": 720,
+            "y": 0,
+            "status": "existing",
+            "coverage": 95,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "payments/vault.ts#saveCard",
+            "file": "payments/vault.ts",
+            "symbol": "saveCard()",
+            "plainName": "Remember the card",
+            "plainDesc": "Keeps a card for next time",
+            "column": "payments",
+            "x": 720,
+            "y": 110,
+            "status": "in_progress",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 86,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "checkout/order.ts#placeOrder",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/charge.ts#chargeCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "account/SavedCardsList.ts",
+            "kind": "imports"
+          },
+          {
+            "from": "account/SavedCardsList.ts",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "imports"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "auth/guest.ts#createGuestSession",
+            "kind": "imports"
+          }
+        ],
+        "conflicts": [
+          {
+            "id": "c1",
+            "kind": "semantic",
+            "between": [
+              "bob",
+              "alice"
+            ],
+            "nodeIds": [
+              "account/user.ts#getUser",
+              "checkout/order.ts#placeOrder"
+            ],
+            "evidence": {
+              "changedBy": "bob",
+              "changedSymbol": "getUser",
+              "diff": "--- a/account/user.ts\n+++ b/account/user.ts\n-export function getUser(): User {\n-  if (!signedInUser) {\n-    throw new Error(\"No one is signed in\");\n-  }\n-  return signedInUser;\n+export function getUser(): User | null {\n+  return signedInUser ?? null;",
+              "affectedFile": "checkout/order.ts",
+              "affectedLine": 42,
+              "affectedCode": "saveCard(getUser().id, card);",
+              "compilerError": "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'."
+            },
+            "plainSummary": "Saved cards assumes every buyer has an account. Guest checkout removes that. Neither agent can settle this alone.",
+            "question": "Can guests save cards?",
+            "options": [
+              {
+                "id": "signup",
+                "label": "No — offer guests \"Create an account to save your card\""
+              },
+              {
+                "id": "email",
+                "label": "Yes — save it against a verified email"
+              }
+            ]
+          }
+        ],
+        "drift": [],
+        "agentStatus": {
+          "alice": "paused",
+          "bob": "paused",
+          "sam": "working"
+        }
+      }
+    },
+    {
+      "id": "scene-4",
+      "title": "Decide together",
+      "narration": "This is a product call, not a coding call. Priya, Alice and Bob settle it on the board.",
+      "state": {
+        "participants": [
+          {
+            "id": "priya",
+            "name": "Priya",
+            "role": "pm",
+            "color": "#6d28d9"
+          },
+          {
+            "id": "alice",
+            "name": "Alice",
+            "role": "dev",
+            "color": "#2563eb",
+            "ticket": "SHOP-212"
+          },
+          {
+            "id": "bob",
+            "name": "Bob",
+            "role": "dev",
+            "color": "#c2410c",
+            "ticket": "SHOP-219"
+          },
+          {
+            "id": "sam",
+            "name": "Sam",
+            "role": "dev",
+            "color": "#0f766e",
+            "ticket": "SHOP-230"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "checkout/CheckoutPage.ts",
+            "file": "checkout/CheckoutPage.ts",
+            "symbol": "CheckoutPage.ts",
+            "plainName": "Checkout page",
+            "plainDesc": "Where buyers pay",
+            "column": "checkout",
+            "x": 0,
+            "y": 0,
+            "status": "existing",
+            "coverage": 72,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "checkout/order.ts#placeOrder",
+            "file": "checkout/order.ts",
+            "symbol": "placeOrder()",
+            "plainName": "Place the order",
+            "plainDesc": "Turns a cart into an order",
+            "column": "checkout",
+            "x": 0,
+            "y": 110,
+            "status": "conflict",
+            "owner": "alice",
+            "coverage": 91,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Alice's agent for SHOP-212",
+                "by": "alice"
+              }
+            ]
+          },
+          {
+            "id": "auth/login.ts#requireLogin",
+            "file": "auth/login.ts",
+            "symbol": "requireLogin()",
+            "plainName": "Sign-in check",
+            "plainDesc": "Makes sure you're signed in",
+            "column": "auth",
+            "x": 240,
+            "y": 0,
+            "status": "changing",
+            "owner": "bob",
+            "coverage": 64,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Bob's agent for SHOP-219",
+                "by": "bob"
+              }
+            ]
+          },
+          {
+            "id": "auth/guest.ts#createGuestSession",
+            "file": "auth/guest.ts",
+            "symbol": "createGuestSession()",
+            "plainName": "Guest checkout",
+            "plainDesc": "Buy without an account",
+            "column": "auth",
+            "x": 240,
+            "y": 110,
+            "status": "in_progress",
+            "owner": "bob",
+            "isNew": true,
+            "coverage": 82,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Bob's agent for SHOP-219",
+                "by": "bob"
+              }
+            ]
+          },
+          {
+            "id": "account/AccountPage.ts",
+            "file": "account/AccountPage.ts",
+            "symbol": "AccountPage.ts",
+            "plainName": "Your Account page",
+            "plainDesc": "Profile and settings",
+            "column": "account",
+            "x": 480,
+            "y": 0,
+            "status": "existing",
+            "coverage": 40,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "account/user.ts#getUser",
+            "file": "account/user.ts",
+            "symbol": "getUser()",
+            "plainName": "Who's buying",
+            "plainDesc": "Looks up the signed-in buyer",
+            "column": "account",
+            "x": 480,
+            "y": 110,
+            "status": "conflict",
+            "owner": "bob",
+            "coverage": 88,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Long-standing code: returns the signed-in buyer, throws if nobody is signed in"
+              },
+              {
+                "at": "2026-10-23T10:12",
+                "text": "Bob's agent changed it to return null for guests (SHOP-219)",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:12",
+                "text": "Combined type check failed in Alice's checkout/order.ts:42 (SHOP-212 assumed every buyer has an account)"
+              }
+            ]
+          },
+          {
+            "id": "account/SavedCardsList.ts",
+            "file": "account/SavedCardsList.ts",
+            "symbol": "SavedCardsList.ts",
+            "plainName": "Saved cards list",
+            "plainDesc": "Shows a buyer's saved cards",
+            "column": "account",
+            "x": 480,
+            "y": 220,
+            "status": "in_progress",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 70,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              }
+            ]
+          },
+          {
+            "id": "payments/charge.ts#chargeCard",
+            "file": "payments/charge.ts",
+            "symbol": "chargeCard()",
+            "plainName": "Charge the card",
+            "plainDesc": "Sends the payment",
+            "column": "payments",
+            "x": 720,
+            "y": 0,
+            "status": "existing",
+            "coverage": 95,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "payments/vault.ts#saveCard",
+            "file": "payments/vault.ts",
+            "symbol": "saveCard()",
+            "plainName": "Remember the card",
+            "plainDesc": "Keeps a card for next time",
+            "column": "payments",
+            "x": 720,
+            "y": 110,
+            "status": "in_progress",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 86,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "checkout/order.ts#placeOrder",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/charge.ts#chargeCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "account/SavedCardsList.ts",
+            "kind": "imports"
+          },
+          {
+            "from": "account/SavedCardsList.ts",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "imports"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "auth/guest.ts#createGuestSession",
+            "kind": "imports"
+          }
+        ],
+        "conflicts": [
+          {
+            "id": "c1",
+            "kind": "semantic",
+            "between": [
+              "bob",
+              "alice"
+            ],
+            "nodeIds": [
+              "account/user.ts#getUser",
+              "checkout/order.ts#placeOrder"
+            ],
+            "evidence": {
+              "changedBy": "bob",
+              "changedSymbol": "getUser",
+              "diff": "--- a/account/user.ts\n+++ b/account/user.ts\n-export function getUser(): User {\n-  if (!signedInUser) {\n-    throw new Error(\"No one is signed in\");\n-  }\n-  return signedInUser;\n+export function getUser(): User | null {\n+  return signedInUser ?? null;",
+              "affectedFile": "checkout/order.ts",
+              "affectedLine": 42,
+              "affectedCode": "saveCard(getUser().id, card);",
+              "compilerError": "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'."
+            },
+            "plainSummary": "Saved cards assumes every buyer has an account. Guest checkout removes that. Neither agent can settle this alone.",
+            "question": "Can guests save cards?",
+            "options": [
+              {
+                "id": "signup",
+                "label": "No — offer guests \"Create an account to save your card\""
+              },
+              {
+                "id": "email",
+                "label": "Yes — save it against a verified email"
+              }
+            ]
+          }
+        ],
+        "drift": [],
+        "agentStatus": {
+          "alice": "paused",
+          "bob": "paused",
+          "sam": "working"
+        }
+      }
+    },
+    {
+      "id": "scene-5",
+      "title": "Agents adapt",
+      "narration": "The decision flows back into both agents and they carry on. A new box appears for the follow-up work.",
+      "state": {
+        "participants": [
+          {
+            "id": "priya",
+            "name": "Priya",
+            "role": "pm",
+            "color": "#6d28d9"
+          },
+          {
+            "id": "alice",
+            "name": "Alice",
+            "role": "dev",
+            "color": "#2563eb",
+            "ticket": "SHOP-212"
+          },
+          {
+            "id": "bob",
+            "name": "Bob",
+            "role": "dev",
+            "color": "#c2410c",
+            "ticket": "SHOP-219"
+          },
+          {
+            "id": "sam",
+            "name": "Sam",
+            "role": "dev",
+            "color": "#0f766e",
+            "ticket": "SHOP-230"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "checkout/CheckoutPage.ts",
+            "file": "checkout/CheckoutPage.ts",
+            "symbol": "CheckoutPage.ts",
+            "plainName": "Checkout page",
+            "plainDesc": "Where buyers pay",
+            "column": "checkout",
+            "x": 0,
+            "y": 0,
+            "status": "existing",
+            "coverage": 72,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "checkout/order.ts#placeOrder",
+            "file": "checkout/order.ts",
+            "symbol": "placeOrder()",
+            "plainName": "Place the order",
+            "plainDesc": "Turns a cart into an order",
+            "column": "checkout",
+            "x": 0,
+            "y": 110,
+            "status": "resolved",
+            "owner": "alice",
+            "coverage": 91,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Alice's agent for SHOP-212",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              }
+            ]
+          },
+          {
+            "id": "checkout/SignUpPrompt.ts",
+            "file": "checkout/SignUpPrompt.ts",
+            "symbol": "SignUpPrompt.ts",
+            "plainName": "\"Create an account\" offer",
+            "plainDesc": "Shown to guests after paying",
+            "column": "checkout",
+            "x": 0,
+            "y": 220,
+            "status": "in_progress",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 75,
+            "history": [
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Added because Priya decided: Guests can't save cards. After checkout, offer them \"Create an account to save your card.\"",
+                "by": "alice"
+              }
+            ]
+          },
+          {
+            "id": "auth/login.ts#requireLogin",
+            "file": "auth/login.ts",
+            "symbol": "requireLogin()",
+            "plainName": "Sign-in check",
+            "plainDesc": "Makes sure you're signed in",
+            "column": "auth",
+            "x": 240,
+            "y": 0,
+            "status": "changing",
+            "owner": "bob",
+            "coverage": 64,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Bob's agent for SHOP-219",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              }
+            ]
+          },
+          {
+            "id": "auth/guest.ts#createGuestSession",
+            "file": "auth/guest.ts",
+            "symbol": "createGuestSession()",
+            "plainName": "Guest checkout",
+            "plainDesc": "Buy without an account",
+            "column": "auth",
+            "x": 240,
+            "y": 110,
+            "status": "in_progress",
+            "owner": "bob",
+            "isNew": true,
+            "coverage": 82,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Bob's agent for SHOP-219",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              }
+            ]
+          },
+          {
+            "id": "account/AccountPage.ts",
+            "file": "account/AccountPage.ts",
+            "symbol": "AccountPage.ts",
+            "plainName": "Your Account page",
+            "plainDesc": "Profile and settings",
+            "column": "account",
+            "x": 480,
+            "y": 0,
+            "status": "existing",
+            "coverage": 40,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "account/user.ts#getUser",
+            "file": "account/user.ts",
+            "symbol": "getUser()",
+            "plainName": "Who's buying",
+            "plainDesc": "Looks up the signed-in buyer",
+            "column": "account",
+            "x": 480,
+            "y": 110,
+            "status": "resolved",
+            "owner": "bob",
+            "coverage": 88,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Long-standing code: returns the signed-in buyer, throws if nobody is signed in"
+              },
+              {
+                "at": "2026-10-23T10:12",
+                "text": "Bob's agent changed it to return null for guests (SHOP-219)",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:12",
+                "text": "Combined type check failed in Alice's checkout/order.ts:42 (SHOP-212 assumed every buyer has an account)"
+              },
+              {
+                "at": "2026-10-23T10:20",
+                "text": "Priya decided: Guests can't save cards. After checkout, offer them \"Create an account to save your card.\"",
+                "by": "priya"
+              }
+            ]
+          },
+          {
+            "id": "account/SavedCardsList.ts",
+            "file": "account/SavedCardsList.ts",
+            "symbol": "SavedCardsList.ts",
+            "plainName": "Saved cards list",
+            "plainDesc": "Shows a buyer's saved cards",
+            "column": "account",
+            "x": 480,
+            "y": 220,
+            "status": "in_progress",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 70,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              }
+            ]
+          },
+          {
+            "id": "payments/charge.ts#chargeCard",
+            "file": "payments/charge.ts",
+            "symbol": "chargeCard()",
+            "plainName": "Charge the card",
+            "plainDesc": "Sends the payment",
+            "column": "payments",
+            "x": 720,
+            "y": 0,
+            "status": "existing",
+            "coverage": 95,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "payments/vault.ts#saveCard",
+            "file": "payments/vault.ts",
+            "symbol": "saveCard()",
+            "plainName": "Remember the card",
+            "plainDesc": "Keeps a card for next time",
+            "column": "payments",
+            "x": 720,
+            "y": 110,
+            "status": "in_progress",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 86,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "checkout/order.ts#placeOrder",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/charge.ts#chargeCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "account/SavedCardsList.ts",
+            "kind": "imports"
+          },
+          {
+            "from": "account/SavedCardsList.ts",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "imports"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "auth/guest.ts#createGuestSession",
+            "kind": "imports"
+          },
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "checkout/SignUpPrompt.ts",
+            "kind": "imports"
+          }
+        ],
+        "conflicts": [
+          {
+            "id": "c1",
+            "kind": "semantic",
+            "between": [
+              "bob",
+              "alice"
+            ],
+            "nodeIds": [
+              "account/user.ts#getUser",
+              "checkout/order.ts#placeOrder"
+            ],
+            "evidence": {
+              "changedBy": "bob",
+              "changedSymbol": "getUser",
+              "diff": "--- a/account/user.ts\n+++ b/account/user.ts\n-export function getUser(): User {\n-  if (!signedInUser) {\n-    throw new Error(\"No one is signed in\");\n-  }\n-  return signedInUser;\n+export function getUser(): User | null {\n+  return signedInUser ?? null;",
+              "affectedFile": "checkout/order.ts",
+              "affectedLine": 42,
+              "affectedCode": "saveCard(getUser().id, card);",
+              "compilerError": "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'."
+            },
+            "plainSummary": "Saved cards assumes every buyer has an account. Guest checkout removes that. Neither agent can settle this alone.",
+            "question": "Can guests save cards?",
+            "options": [
+              {
+                "id": "signup",
+                "label": "No — offer guests \"Create an account to save your card\""
+              },
+              {
+                "id": "email",
+                "label": "Yes — save it against a verified email"
+              }
+            ],
+            "decision": {
+              "optionId": "signup",
+              "decidedBy": "priya",
+              "text": "Guests can't save cards. After checkout, offer them \"Create an account to save your card.\"",
+              "at": "2026-10-23T10:20"
+            }
+          }
+        ],
+        "drift": [],
+        "agentStatus": {
+          "alice": "resumed",
+          "bob": "resumed",
+          "sam": "working"
+        }
+      }
+    },
+    {
+      "id": "scene-6",
+      "title": "Done",
+      "narration": "Both branches finish. Boxes turn green as the combined tests pass.",
+      "state": {
+        "participants": [
+          {
+            "id": "priya",
+            "name": "Priya",
+            "role": "pm",
+            "color": "#6d28d9"
+          },
+          {
+            "id": "alice",
+            "name": "Alice",
+            "role": "dev",
+            "color": "#2563eb",
+            "ticket": "SHOP-212"
+          },
+          {
+            "id": "bob",
+            "name": "Bob",
+            "role": "dev",
+            "color": "#c2410c",
+            "ticket": "SHOP-219"
+          },
+          {
+            "id": "sam",
+            "name": "Sam",
+            "role": "dev",
+            "color": "#0f766e",
+            "ticket": "SHOP-230"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "checkout/CheckoutPage.ts",
+            "file": "checkout/CheckoutPage.ts",
+            "symbol": "CheckoutPage.ts",
+            "plainName": "Checkout page",
+            "plainDesc": "Where buyers pay",
+            "column": "checkout",
+            "x": 0,
+            "y": 0,
+            "status": "existing",
+            "coverage": 72,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "checkout/order.ts#placeOrder",
+            "file": "checkout/order.ts",
+            "symbol": "placeOrder()",
+            "plainName": "Place the order",
+            "plainDesc": "Turns a cart into an order",
+            "column": "checkout",
+            "x": 0,
+            "y": 110,
+            "status": "built",
+            "owner": "alice",
+            "coverage": 91,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Alice's agent for SHOP-212",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "checkout/SignUpPrompt.ts",
+            "file": "checkout/SignUpPrompt.ts",
+            "symbol": "SignUpPrompt.ts",
+            "plainName": "\"Create an account\" offer",
+            "plainDesc": "Shown to guests after paying",
+            "column": "checkout",
+            "x": 0,
+            "y": 220,
+            "status": "built",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 75,
+            "history": [
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Added because Priya decided: Guests can't save cards. After checkout, offer them \"Create an account to save your card.\"",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "auth/login.ts#requireLogin",
+            "file": "auth/login.ts",
+            "symbol": "requireLogin()",
+            "plainName": "Sign-in check",
+            "plainDesc": "Makes sure you're signed in",
+            "column": "auth",
+            "x": 240,
+            "y": 0,
+            "status": "built",
+            "owner": "bob",
+            "coverage": 64,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Bob's agent for SHOP-219",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "auth/guest.ts#createGuestSession",
+            "file": "auth/guest.ts",
+            "symbol": "createGuestSession()",
+            "plainName": "Guest checkout",
+            "plainDesc": "Buy without an account",
+            "column": "auth",
+            "x": 240,
+            "y": 110,
+            "status": "built",
+            "owner": "bob",
+            "isNew": true,
+            "coverage": 82,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Bob's agent for SHOP-219",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "account/AccountPage.ts",
+            "file": "account/AccountPage.ts",
+            "symbol": "AccountPage.ts",
+            "plainName": "Your Account page",
+            "plainDesc": "Profile and settings",
+            "column": "account",
+            "x": 480,
+            "y": 0,
+            "status": "existing",
+            "coverage": 40,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "account/user.ts#getUser",
+            "file": "account/user.ts",
+            "symbol": "getUser()",
+            "plainName": "Who's buying",
+            "plainDesc": "Looks up the signed-in buyer",
+            "column": "account",
+            "x": 480,
+            "y": 110,
+            "status": "built",
+            "owner": "bob",
+            "coverage": 88,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Long-standing code: returns the signed-in buyer, throws if nobody is signed in"
+              },
+              {
+                "at": "2026-10-23T10:12",
+                "text": "Bob's agent changed it to return null for guests (SHOP-219)",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:12",
+                "text": "Combined type check failed in Alice's checkout/order.ts:42 (SHOP-212 assumed every buyer has an account)"
+              },
+              {
+                "at": "2026-10-23T10:20",
+                "text": "Priya decided: Guests can't save cards. After checkout, offer them \"Create an account to save your card.\"",
+                "by": "priya"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built as planned. Callers must now check for guests."
+              }
+            ]
+          },
+          {
+            "id": "account/SavedCardsList.ts",
+            "file": "account/SavedCardsList.ts",
+            "symbol": "SavedCardsList.ts",
+            "plainName": "Saved cards list",
+            "plainDesc": "Shows a buyer's saved cards",
+            "column": "account",
+            "x": 480,
+            "y": 220,
+            "status": "built",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 70,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "payments/charge.ts#chargeCard",
+            "file": "payments/charge.ts",
+            "symbol": "chargeCard()",
+            "plainName": "Charge the card",
+            "plainDesc": "Sends the payment",
+            "column": "payments",
+            "x": 720,
+            "y": 0,
+            "status": "existing",
+            "coverage": 95,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "payments/vault.ts#saveCard",
+            "file": "payments/vault.ts",
+            "symbol": "saveCard()",
+            "plainName": "Remember the card",
+            "plainDesc": "Keeps a card for next time",
+            "column": "payments",
+            "x": 720,
+            "y": 110,
+            "status": "built",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 86,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "checkout/order.ts#placeOrder",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/charge.ts#chargeCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "account/SavedCardsList.ts",
+            "kind": "imports"
+          },
+          {
+            "from": "account/SavedCardsList.ts",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "imports"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "auth/guest.ts#createGuestSession",
+            "kind": "imports"
+          },
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "checkout/SignUpPrompt.ts",
+            "kind": "imports"
+          }
+        ],
+        "conflicts": [
+          {
+            "id": "c1",
+            "kind": "semantic",
+            "between": [
+              "bob",
+              "alice"
+            ],
+            "nodeIds": [
+              "account/user.ts#getUser",
+              "checkout/order.ts#placeOrder"
+            ],
+            "evidence": {
+              "changedBy": "bob",
+              "changedSymbol": "getUser",
+              "diff": "--- a/account/user.ts\n+++ b/account/user.ts\n-export function getUser(): User {\n-  if (!signedInUser) {\n-    throw new Error(\"No one is signed in\");\n-  }\n-  return signedInUser;\n+export function getUser(): User | null {\n+  return signedInUser ?? null;",
+              "affectedFile": "checkout/order.ts",
+              "affectedLine": 42,
+              "affectedCode": "saveCard(getUser().id, card);",
+              "compilerError": "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'."
+            },
+            "plainSummary": "Saved cards assumes every buyer has an account. Guest checkout removes that. Neither agent can settle this alone.",
+            "question": "Can guests save cards?",
+            "options": [
+              {
+                "id": "signup",
+                "label": "No — offer guests \"Create an account to save your card\""
+              },
+              {
+                "id": "email",
+                "label": "Yes — save it against a verified email"
+              }
+            ],
+            "decision": {
+              "optionId": "signup",
+              "decidedBy": "priya",
+              "text": "Guests can't save cards. After checkout, offer them \"Create an account to save your card.\"",
+              "at": "2026-10-23T10:20"
+            }
+          }
+        ],
+        "drift": [],
+        "agentStatus": {
+          "alice": "done",
+          "bob": "done",
+          "sam": "done"
+        }
+      }
+    },
+    {
+      "id": "scene-7",
+      "title": "Drift check",
+      "narration": "Alice's agent added something nobody planned. Review becomes plan vs. actual, not a wall of diff.",
+      "state": {
+        "participants": [
+          {
+            "id": "priya",
+            "name": "Priya",
+            "role": "pm",
+            "color": "#6d28d9"
+          },
+          {
+            "id": "alice",
+            "name": "Alice",
+            "role": "dev",
+            "color": "#2563eb",
+            "ticket": "SHOP-212"
+          },
+          {
+            "id": "bob",
+            "name": "Bob",
+            "role": "dev",
+            "color": "#c2410c",
+            "ticket": "SHOP-219"
+          },
+          {
+            "id": "sam",
+            "name": "Sam",
+            "role": "dev",
+            "color": "#0f766e",
+            "ticket": "SHOP-230"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "checkout/CheckoutPage.ts",
+            "file": "checkout/CheckoutPage.ts",
+            "symbol": "CheckoutPage.ts",
+            "plainName": "Checkout page",
+            "plainDesc": "Where buyers pay",
+            "column": "checkout",
+            "x": 0,
+            "y": 0,
+            "status": "existing",
+            "coverage": 72,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "checkout/order.ts#placeOrder",
+            "file": "checkout/order.ts",
+            "symbol": "placeOrder()",
+            "plainName": "Place the order",
+            "plainDesc": "Turns a cart into an order",
+            "column": "checkout",
+            "x": 0,
+            "y": 110,
+            "status": "built",
+            "owner": "alice",
+            "coverage": 91,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Alice's agent for SHOP-212",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "checkout/SignUpPrompt.ts",
+            "file": "checkout/SignUpPrompt.ts",
+            "symbol": "SignUpPrompt.ts",
+            "plainName": "\"Create an account\" offer",
+            "plainDesc": "Shown to guests after paying",
+            "column": "checkout",
+            "x": 0,
+            "y": 220,
+            "status": "built",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 75,
+            "history": [
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Added because Priya decided: Guests can't save cards. After checkout, offer them \"Create an account to save your card.\"",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "auth/login.ts#requireLogin",
+            "file": "auth/login.ts",
+            "symbol": "requireLogin()",
+            "plainName": "Sign-in check",
+            "plainDesc": "Makes sure you're signed in",
+            "column": "auth",
+            "x": 240,
+            "y": 0,
+            "status": "built",
+            "owner": "bob",
+            "coverage": 64,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Bob's agent for SHOP-219",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "auth/guest.ts#createGuestSession",
+            "file": "auth/guest.ts",
+            "symbol": "createGuestSession()",
+            "plainName": "Guest checkout",
+            "plainDesc": "Buy without an account",
+            "column": "auth",
+            "x": 240,
+            "y": 110,
+            "status": "built",
+            "owner": "bob",
+            "isNew": true,
+            "coverage": 82,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Bob's agent for SHOP-219",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "account/AccountPage.ts",
+            "file": "account/AccountPage.ts",
+            "symbol": "AccountPage.ts",
+            "plainName": "Your Account page",
+            "plainDesc": "Profile and settings",
+            "column": "account",
+            "x": 480,
+            "y": 0,
+            "status": "existing",
+            "coverage": 40,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "account/user.ts#getUser",
+            "file": "account/user.ts",
+            "symbol": "getUser()",
+            "plainName": "Who's buying",
+            "plainDesc": "Looks up the signed-in buyer",
+            "column": "account",
+            "x": 480,
+            "y": 110,
+            "status": "built",
+            "owner": "bob",
+            "coverage": 88,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Long-standing code: returns the signed-in buyer, throws if nobody is signed in"
+              },
+              {
+                "at": "2026-10-23T10:12",
+                "text": "Bob's agent changed it to return null for guests (SHOP-219)",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:12",
+                "text": "Combined type check failed in Alice's checkout/order.ts:42 (SHOP-212 assumed every buyer has an account)"
+              },
+              {
+                "at": "2026-10-23T10:20",
+                "text": "Priya decided: Guests can't save cards. After checkout, offer them \"Create an account to save your card.\"",
+                "by": "priya"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built as planned. Callers must now check for guests."
+              }
+            ]
+          },
+          {
+            "id": "account/SavedCardsList.ts",
+            "file": "account/SavedCardsList.ts",
+            "symbol": "SavedCardsList.ts",
+            "plainName": "Saved cards list",
+            "plainDesc": "Shows a buyer's saved cards",
+            "column": "account",
+            "x": 480,
+            "y": 220,
+            "status": "built",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 70,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "payments/charge.ts#chargeCard",
+            "file": "payments/charge.ts",
+            "symbol": "chargeCard()",
+            "plainName": "Charge the card",
+            "plainDesc": "Sends the payment",
+            "column": "payments",
+            "x": 720,
+            "y": 0,
+            "status": "existing",
+            "coverage": 95,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "payments/vault.ts#saveCard",
+            "file": "payments/vault.ts",
+            "symbol": "saveCard()",
+            "plainName": "Remember the card",
+            "plainDesc": "Keeps a card for next time",
+            "column": "payments",
+            "x": 720,
+            "y": 110,
+            "status": "built",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 86,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "payments/cardCache.ts",
+            "file": "payments/cardCache.ts",
+            "symbol": "cardCache.ts",
+            "plainName": "Speed-up cache",
+            "plainDesc": "Faster card lookups",
+            "column": "payments",
+            "x": 720,
+            "y": 220,
+            "status": "drift",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 0,
+            "history": [
+              {
+                "at": "2026-10-24T09:05",
+                "text": "Added by Alice's agent without being in its plan; no tests",
+                "by": "alice"
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "checkout/order.ts#placeOrder",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/charge.ts#chargeCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "account/SavedCardsList.ts",
+            "kind": "imports"
+          },
+          {
+            "from": "account/SavedCardsList.ts",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "imports"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "auth/guest.ts#createGuestSession",
+            "kind": "imports"
+          },
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "checkout/SignUpPrompt.ts",
+            "kind": "imports"
+          },
+          {
+            "from": "payments/vault.ts#saveCard",
+            "to": "payments/cardCache.ts",
+            "kind": "imports"
+          }
+        ],
+        "conflicts": [
+          {
+            "id": "c1",
+            "kind": "semantic",
+            "between": [
+              "bob",
+              "alice"
+            ],
+            "nodeIds": [
+              "account/user.ts#getUser",
+              "checkout/order.ts#placeOrder"
+            ],
+            "evidence": {
+              "changedBy": "bob",
+              "changedSymbol": "getUser",
+              "diff": "--- a/account/user.ts\n+++ b/account/user.ts\n-export function getUser(): User {\n-  if (!signedInUser) {\n-    throw new Error(\"No one is signed in\");\n-  }\n-  return signedInUser;\n+export function getUser(): User | null {\n+  return signedInUser ?? null;",
+              "affectedFile": "checkout/order.ts",
+              "affectedLine": 42,
+              "affectedCode": "saveCard(getUser().id, card);",
+              "compilerError": "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'."
+            },
+            "plainSummary": "Saved cards assumes every buyer has an account. Guest checkout removes that. Neither agent can settle this alone.",
+            "question": "Can guests save cards?",
+            "options": [
+              {
+                "id": "signup",
+                "label": "No — offer guests \"Create an account to save your card\""
+              },
+              {
+                "id": "email",
+                "label": "Yes — save it against a verified email"
+              }
+            ],
+            "decision": {
+              "optionId": "signup",
+              "decidedBy": "priya",
+              "text": "Guests can't save cards. After checkout, offer them \"Create an account to save your card.\"",
+              "at": "2026-10-23T10:20"
+            }
+          }
+        ],
+        "drift": [
+          {
+            "id": "d1",
+            "participant": "alice",
+            "file": "payments/cardCache.ts",
+            "nodeId": "payments/cardCache.ts",
+            "reason": "Not in Alice's plan, and it has no tests"
+          }
+        ],
+        "agentStatus": {
+          "alice": "done",
+          "bob": "done",
+          "sam": "done"
+        }
+      }
+    },
+    {
+      "id": "scene-8",
+      "title": "Handoff",
+      "narration": "The blueprint is now the documentation: every box remembers what was planned, decided and built.",
+      "state": {
+        "participants": [
+          {
+            "id": "priya",
+            "name": "Priya",
+            "role": "pm",
+            "color": "#6d28d9"
+          },
+          {
+            "id": "alice",
+            "name": "Alice",
+            "role": "dev",
+            "color": "#2563eb",
+            "ticket": "SHOP-212"
+          },
+          {
+            "id": "bob",
+            "name": "Bob",
+            "role": "dev",
+            "color": "#c2410c",
+            "ticket": "SHOP-219"
+          },
+          {
+            "id": "sam",
+            "name": "Sam",
+            "role": "dev",
+            "color": "#0f766e",
+            "ticket": "SHOP-230"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "checkout/CheckoutPage.ts",
+            "file": "checkout/CheckoutPage.ts",
+            "symbol": "CheckoutPage.ts",
+            "plainName": "Checkout page",
+            "plainDesc": "Where buyers pay",
+            "column": "checkout",
+            "x": 0,
+            "y": 0,
+            "status": "existing",
+            "coverage": 72,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "checkout/order.ts#placeOrder",
+            "file": "checkout/order.ts",
+            "symbol": "placeOrder()",
+            "plainName": "Place the order",
+            "plainDesc": "Turns a cart into an order",
+            "column": "checkout",
+            "x": 0,
+            "y": 110,
+            "status": "built",
+            "owner": "alice",
+            "coverage": 91,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Alice's agent for SHOP-212",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "checkout/SignUpPrompt.ts",
+            "file": "checkout/SignUpPrompt.ts",
+            "symbol": "SignUpPrompt.ts",
+            "plainName": "\"Create an account\" offer",
+            "plainDesc": "Shown to guests after paying",
+            "column": "checkout",
+            "x": 0,
+            "y": 220,
+            "status": "built",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 75,
+            "history": [
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Added because Priya decided: Guests can't save cards. After checkout, offer them \"Create an account to save your card.\"",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "auth/login.ts#requireLogin",
+            "file": "auth/login.ts",
+            "symbol": "requireLogin()",
+            "plainName": "Sign-in check",
+            "plainDesc": "Makes sure you're signed in",
+            "column": "auth",
+            "x": 240,
+            "y": 0,
+            "status": "built",
+            "owner": "bob",
+            "coverage": 64,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Changed by Bob's agent for SHOP-219",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "auth/guest.ts#createGuestSession",
+            "file": "auth/guest.ts",
+            "symbol": "createGuestSession()",
+            "plainName": "Guest checkout",
+            "plainDesc": "Buy without an account",
+            "column": "auth",
+            "x": 240,
+            "y": 110,
+            "status": "built",
+            "owner": "bob",
+            "isNew": true,
+            "coverage": 82,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Bob's agent for SHOP-219",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "account/AccountPage.ts",
+            "file": "account/AccountPage.ts",
+            "symbol": "AccountPage.ts",
+            "plainName": "Your Account page",
+            "plainDesc": "Profile and settings",
+            "column": "account",
+            "x": 480,
+            "y": 0,
+            "status": "existing",
+            "coverage": 40,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "account/user.ts#getUser",
+            "file": "account/user.ts",
+            "symbol": "getUser()",
+            "plainName": "Who's buying",
+            "plainDesc": "Looks up the signed-in buyer",
+            "column": "account",
+            "x": 480,
+            "y": 110,
+            "status": "built",
+            "owner": "bob",
+            "coverage": 88,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Long-standing code: returns the signed-in buyer, throws if nobody is signed in"
+              },
+              {
+                "at": "2026-10-23T10:12",
+                "text": "Bob's agent changed it to return null for guests (SHOP-219)",
+                "by": "bob"
+              },
+              {
+                "at": "2026-10-23T10:12",
+                "text": "Combined type check failed in Alice's checkout/order.ts:42 (SHOP-212 assumed every buyer has an account)"
+              },
+              {
+                "at": "2026-10-23T10:20",
+                "text": "Priya decided: Guests can't save cards. After checkout, offer them \"Create an account to save your card.\"",
+                "by": "priya"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built as planned. Callers must now check for guests."
+              }
+            ]
+          },
+          {
+            "id": "account/SavedCardsList.ts",
+            "file": "account/SavedCardsList.ts",
+            "symbol": "SavedCardsList.ts",
+            "plainName": "Saved cards list",
+            "plainDesc": "Shows a buyer's saved cards",
+            "column": "account",
+            "x": 480,
+            "y": 220,
+            "status": "built",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 70,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "payments/charge.ts#chargeCard",
+            "file": "payments/charge.ts",
+            "symbol": "chargeCard()",
+            "plainName": "Charge the card",
+            "plainDesc": "Sends the payment",
+            "column": "payments",
+            "x": 720,
+            "y": 0,
+            "status": "existing",
+            "coverage": 95,
+            "history": [
+              {
+                "at": "2026-10-01",
+                "text": "Existing code"
+              }
+            ]
+          },
+          {
+            "id": "payments/vault.ts#saveCard",
+            "file": "payments/vault.ts",
+            "symbol": "saveCard()",
+            "plainName": "Remember the card",
+            "plainDesc": "Keeps a card for next time",
+            "column": "payments",
+            "x": 720,
+            "y": 110,
+            "status": "built",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 86,
+            "history": [
+              {
+                "at": "2026-10-23T10:05",
+                "text": "Started by Alice's agent for SHOP-212",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-23T10:21",
+                "text": "Adjusted after Priya's decision on getUser()"
+              },
+              {
+                "at": "2026-10-24T09:00",
+                "text": "Built"
+              }
+            ]
+          },
+          {
+            "id": "payments/cardCache.ts",
+            "file": "payments/cardCache.ts",
+            "symbol": "cardCache.ts",
+            "plainName": "Speed-up cache",
+            "plainDesc": "Faster card lookups",
+            "column": "payments",
+            "x": 720,
+            "y": 220,
+            "status": "built",
+            "owner": "alice",
+            "isNew": true,
+            "coverage": 0,
+            "history": [
+              {
+                "at": "2026-10-24T09:05",
+                "text": "Added by Alice's agent without being in its plan; no tests",
+                "by": "alice"
+              },
+              {
+                "at": "2026-10-24T09:10",
+                "text": "Kept and added to the plan by Alice",
+                "by": "alice"
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "checkout/order.ts#placeOrder",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "auth/login.ts#requireLogin",
+            "kind": "calls"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/charge.ts#chargeCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "calls"
+          },
+          {
+            "from": "checkout/order.ts#placeOrder",
+            "to": "account/user.ts#getUser",
+            "kind": "calls"
+          },
+          {
+            "from": "account/AccountPage.ts",
+            "to": "account/SavedCardsList.ts",
+            "kind": "imports"
+          },
+          {
+            "from": "account/SavedCardsList.ts",
+            "to": "payments/vault.ts#saveCard",
+            "kind": "imports"
+          },
+          {
+            "from": "auth/login.ts#requireLogin",
+            "to": "auth/guest.ts#createGuestSession",
+            "kind": "imports"
+          },
+          {
+            "from": "checkout/CheckoutPage.ts",
+            "to": "checkout/SignUpPrompt.ts",
+            "kind": "imports"
+          },
+          {
+            "from": "payments/vault.ts#saveCard",
+            "to": "payments/cardCache.ts",
+            "kind": "imports"
+          }
+        ],
+        "conflicts": [
+          {
+            "id": "c1",
+            "kind": "semantic",
+            "between": [
+              "bob",
+              "alice"
+            ],
+            "nodeIds": [
+              "account/user.ts#getUser",
+              "checkout/order.ts#placeOrder"
+            ],
+            "evidence": {
+              "changedBy": "bob",
+              "changedSymbol": "getUser",
+              "diff": "--- a/account/user.ts\n+++ b/account/user.ts\n-export function getUser(): User {\n-  if (!signedInUser) {\n-    throw new Error(\"No one is signed in\");\n-  }\n-  return signedInUser;\n+export function getUser(): User | null {\n+  return signedInUser ?? null;",
+              "affectedFile": "checkout/order.ts",
+              "affectedLine": 42,
+              "affectedCode": "saveCard(getUser().id, card);",
+              "compilerError": "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'."
+            },
+            "plainSummary": "Saved cards assumes every buyer has an account. Guest checkout removes that. Neither agent can settle this alone.",
+            "question": "Can guests save cards?",
+            "options": [
+              {
+                "id": "signup",
+                "label": "No — offer guests \"Create an account to save your card\""
+              },
+              {
+                "id": "email",
+                "label": "Yes — save it against a verified email"
+              }
+            ],
+            "decision": {
+              "optionId": "signup",
+              "decidedBy": "priya",
+              "text": "Guests can't save cards. After checkout, offer them \"Create an account to save your card.\"",
+              "at": "2026-10-23T10:20"
+            }
+          }
+        ],
+        "drift": [
+          {
+            "id": "d1",
+            "participant": "alice",
+            "file": "payments/cardCache.ts",
+            "nodeId": "payments/cardCache.ts",
+            "reason": "Not in Alice's plan, and it has no tests",
+            "resolved": "kept"
+          }
+        ],
+        "agentStatus": {
+          "alice": "done",
+          "bob": "done",
+          "sam": "done"
+        }
+      }
+    }
+  ]
+}
