@@ -13,11 +13,19 @@ Examples: `partner3/drift`, `partner3/coverage`, `partner2/board-task-1`, `taylo
 ```
 git add -A
 git commit -m "drift: flag files that weren't in the plan"
-pnpm test          # before EVERY push
+pnpm test          # before EVERY push; must pass
+pnpm test:drift    # your own module's tests (or test:board, test:coverage, …)
 git push -u origin partner3/drift
 ```
-About `pnpm test`: your own tests should pass. Tests for modules someone else hasn't finished
-yet are expected to fail. That's normal. Make sure you didn't break anything that was passing before.
+Two kinds of tests:
+- **`pnpm test`** runs only what's already finished (the contract check and the engine). It
+  must pass before every push. If it fails, you broke something that worked, so fix that first.
+- **`pnpm test:todo`** runs every teammate task (drift, coverage, explain, board). These fail on
+  purpose until each task is done. Your own module's tests should go green as you work. It's fine
+  that the others stay red.
+
+When your module's tests all pass and Taylor merges it, he moves it from the "todo" list to the
+"done" list in `scripts/run-tests.mjs`, so `pnpm test` protects it from then on.
 
 ## Getting it into main
 1. On GitHub, open a **pull request** from your branch into `main`.

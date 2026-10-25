@@ -67,7 +67,7 @@ Never work on `main` directly.
 ```
 git checkout -b partner3/drift      # your-name/what-you're-doing
 # ...make changes...
-pnpm test
+pnpm test                           # must pass before you push
 git add -A
 git commit -m "drift: what you did"
 git push -u origin partner3/drift
@@ -81,9 +81,11 @@ Then open a pull request on GitHub. Taylor reviews and merges it. Full details a
 | `pnpm doctor` | Check your setup |
 | `pnpm dev:board` | Run the web board |
 | `pnpm server` | Run the Blueprint server |
-| `pnpm test` | Run every test (some fail on purpose until their task is done) |
-| `pnpm test:board` | Partner 2's board tests |
-| `pnpm test:drift` / `test:coverage` / `test:explain` | Partner 3's module tests |
+| `pnpm test` | Run the tests for finished work. **Must pass before every push.** |
+| `pnpm test:todo` | Run every teammate task's tests. These fail on purpose until each task is done. |
+| `pnpm test:board` | Partner 2's board tests only |
+| `pnpm test:drift` / `test:coverage` / `test:explain` | One of partner 3's modules only |
+| `pnpm test:engine` | The combined-check tests only (needs `demo-shop` next to this repo) |
 | `pnpm check:contract` | Check the shared data still matches the contract |
 
 ## Where things are
