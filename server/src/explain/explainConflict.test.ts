@@ -12,9 +12,9 @@ const demoEvidence: Conflict["evidence"] = {
   changedSymbol: "getUser",
   diff: "-export function getUser(): User {\n+export function getUser(): User | null {",
   affectedFile: "checkout/order.ts",
-  affectedLine: 42,
+  affectedLine: 47,
   affectedCode: "saveCard(getUser().id, card);",
-  compilerError: "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'.",
+  compilerError: "checkout/order.ts(47,12): error TS2531: Object is possibly 'null'.",
 };
 
 const otherEvidence: Conflict["evidence"] = {

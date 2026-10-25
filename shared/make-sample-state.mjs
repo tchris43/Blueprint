@@ -104,9 +104,9 @@ const CONFLICT = {
       "+  return signedInUser ?? null;",
     ].join("\n"),
     affectedFile: "checkout/order.ts",
-    affectedLine: 42,
+    affectedLine: 47,
     affectedCode: "saveCard(getUser().id, card);",
-    compilerError: "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'.",
+    compilerError: "checkout/order.ts(47,12): error TS2531: Object is possibly 'null'.",
   },
   plainSummary: "Saved cards assumes every buyer has an account. Guest checkout removes that. Neither agent can settle this alone.",
   question: "Can guests save cards?",
@@ -140,7 +140,7 @@ function historyFor(def, scene) {
   if (def.id === GET_USER) {
     add(0, "2026-10-01", "Long-standing code: returns the signed-in buyer, throws if nobody is signed in");
     add(2, "2026-10-23T10:12", "Bob's agent changed it to return null for guests (SHOP-219)", "bob");
-    add(3, "2026-10-23T10:12", "Combined type check failed in Alice's checkout/order.ts:42 (SHOP-212 assumed every buyer has an account)");
+    add(3, "2026-10-23T10:12", "Combined type check failed in Alice's checkout/order.ts:47 (SHOP-212 assumed every buyer has an account)");
     add(5, "2026-10-23T10:20", `Priya decided: ${DECISION_TEXT}`, "priya");
     add(6, "2026-10-24T09:00", "Built as planned. Callers must now check for guests.");
     return h;

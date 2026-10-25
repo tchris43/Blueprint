@@ -25,7 +25,7 @@ work breaks silently. Today that's found at code review, at merge, or in product
 Priya (PM), Alice and Bob (devs) each run Claude Code. Sam (dev) is unaffected. App: `demo-shop`.
 1. SHOP-212 (Alice): save cards. Her agent writes `saveCard(getUser().id, card)` in `checkout/order.ts`.
 2. SHOP-219 (Bob): guest checkout. His agent changes `getUser(): User` to `User | null`.
-3. The combined check fails: `checkout/order.ts:42 error TS2531: Object is possibly 'null'`. Only Alice and Bob pause.
+3. The combined check fails: `checkout/order.ts:47 error TS2531: Object is possibly 'null'`. Only Alice and Bob pause.
 4. Priya picks on the board: "No, offer guests 'Create an account'" / "Yes, save against a verified email".
 5. Both agents get the decision and resume. Done: combined tests pass.
 6. Drift: Alice's agent added `cardCache.ts`, unannounced and untested. It's flagged, and Alice keeps or removes it.

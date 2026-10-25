@@ -3,7 +3,7 @@
 ## What it does in the demo
 Scene 4 on the board ([mockup](../../../docs/mockup/scene-4-collision.png)). The computer only knows:
 ```
-checkout/order.ts(42,12): error TS2531: Object is possibly 'null'.
+checkout/order.ts(47,12): error TS2531: Object is possibly 'null'.
 ```
 Priya (the PM) needs to read:
 > Saved cards assumes every buyer has an account. Guest checkout removes that.

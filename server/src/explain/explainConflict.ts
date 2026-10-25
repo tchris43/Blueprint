@@ -5,7 +5,7 @@ import { DEMO_FALLBACK, genericFallback, isDemoConflict, type PlainQuestion } fr
 /**
  * Turns a compiler error into a plain-English decision for the team.
  *
- * The compiler says:  "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'."
+ * The compiler says:  "checkout/order.ts(47,12): error TS2531: Object is possibly 'null'."
  * Priya (the PM) needs: "Saved cards assumes every buyer has an account… Can guests save cards?"
  *                       plus 2–3 options to pick from.
  *

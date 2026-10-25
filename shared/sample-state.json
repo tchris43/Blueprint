@@ -843,7 +843,7 @@
               },
               {
                 "at": "2026-10-23T10:12",
-                "text": "Combined type check failed in Alice's checkout/order.ts:42 (SHOP-212 assumed every buyer has an account)"
+                "text": "Combined type check failed in Alice's checkout/order.ts:47 (SHOP-212 assumed every buyer has an account)"
               }
             ]
           },
@@ -977,9 +977,9 @@
               "changedSymbol": "getUser",
               "diff": "--- a/account/user.ts\n+++ b/account/user.ts\n-export function getUser(): User {\n-  if (!signedInUser) {\n-    throw new Error(\"No one is signed in\");\n-  }\n-  return signedInUser;\n+export function getUser(): User | null {\n+  return signedInUser ?? null;",
               "affectedFile": "checkout/order.ts",
-              "affectedLine": 42,
+              "affectedLine": 47,
               "affectedCode": "saveCard(getUser().id, card);",
-              "compilerError": "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'."
+              "compilerError": "checkout/order.ts(47,12): error TS2531: Object is possibly 'null'."
             },
             "plainSummary": "Saved cards assumes every buyer has an account. Guest checkout removes that. Neither agent can settle this alone.",
             "question": "Can guests save cards?",
@@ -1159,7 +1159,7 @@
               },
               {
                 "at": "2026-10-23T10:12",
-                "text": "Combined type check failed in Alice's checkout/order.ts:42 (SHOP-212 assumed every buyer has an account)"
+                "text": "Combined type check failed in Alice's checkout/order.ts:47 (SHOP-212 assumed every buyer has an account)"
               }
             ]
           },
@@ -1293,9 +1293,9 @@
               "changedSymbol": "getUser",
               "diff": "--- a/account/user.ts\n+++ b/account/user.ts\n-export function getUser(): User {\n-  if (!signedInUser) {\n-    throw new Error(\"No one is signed in\");\n-  }\n-  return signedInUser;\n+export function getUser(): User | null {\n+  return signedInUser ?? null;",
               "affectedFile": "checkout/order.ts",
-              "affectedLine": 42,
+              "affectedLine": 47,
               "affectedCode": "saveCard(getUser().id, card);",
-              "compilerError": "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'."
+              "compilerError": "checkout/order.ts(47,12): error TS2531: Object is possibly 'null'."
             },
             "plainSummary": "Saved cards assumes every buyer has an account. Guest checkout removes that. Neither agent can settle this alone.",
             "question": "Can guests save cards?",
@@ -1508,7 +1508,7 @@
               },
               {
                 "at": "2026-10-23T10:12",
-                "text": "Combined type check failed in Alice's checkout/order.ts:42 (SHOP-212 assumed every buyer has an account)"
+                "text": "Combined type check failed in Alice's checkout/order.ts:47 (SHOP-212 assumed every buyer has an account)"
               },
               {
                 "at": "2026-10-23T10:20",
@@ -1660,9 +1660,9 @@
               "changedSymbol": "getUser",
               "diff": "--- a/account/user.ts\n+++ b/account/user.ts\n-export function getUser(): User {\n-  if (!signedInUser) {\n-    throw new Error(\"No one is signed in\");\n-  }\n-  return signedInUser;\n+export function getUser(): User | null {\n+  return signedInUser ?? null;",
               "affectedFile": "checkout/order.ts",
-              "affectedLine": 42,
+              "affectedLine": 47,
               "affectedCode": "saveCard(getUser().id, card);",
-              "compilerError": "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'."
+              "compilerError": "checkout/order.ts(47,12): error TS2531: Object is possibly 'null'."
             },
             "plainSummary": "Saved cards assumes every buyer has an account. Guest checkout removes that. Neither agent can settle this alone.",
             "question": "Can guests save cards?",
@@ -1897,7 +1897,7 @@
               },
               {
                 "at": "2026-10-23T10:12",
-                "text": "Combined type check failed in Alice's checkout/order.ts:42 (SHOP-212 assumed every buyer has an account)"
+                "text": "Combined type check failed in Alice's checkout/order.ts:47 (SHOP-212 assumed every buyer has an account)"
               },
               {
                 "at": "2026-10-23T10:20",
@@ -2061,9 +2061,9 @@
               "changedSymbol": "getUser",
               "diff": "--- a/account/user.ts\n+++ b/account/user.ts\n-export function getUser(): User {\n-  if (!signedInUser) {\n-    throw new Error(\"No one is signed in\");\n-  }\n-  return signedInUser;\n+export function getUser(): User | null {\n+  return signedInUser ?? null;",
               "affectedFile": "checkout/order.ts",
-              "affectedLine": 42,
+              "affectedLine": 47,
               "affectedCode": "saveCard(getUser().id, card);",
-              "compilerError": "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'."
+              "compilerError": "checkout/order.ts(47,12): error TS2531: Object is possibly 'null'."
             },
             "plainSummary": "Saved cards assumes every buyer has an account. Guest checkout removes that. Neither agent can settle this alone.",
             "question": "Can guests save cards?",
@@ -2298,7 +2298,7 @@
               },
               {
                 "at": "2026-10-23T10:12",
-                "text": "Combined type check failed in Alice's checkout/order.ts:42 (SHOP-212 assumed every buyer has an account)"
+                "text": "Combined type check failed in Alice's checkout/order.ts:47 (SHOP-212 assumed every buyer has an account)"
               },
               {
                 "at": "2026-10-23T10:20",
@@ -2488,9 +2488,9 @@
               "changedSymbol": "getUser",
               "diff": "--- a/account/user.ts\n+++ b/account/user.ts\n-export function getUser(): User {\n-  if (!signedInUser) {\n-    throw new Error(\"No one is signed in\");\n-  }\n-  return signedInUser;\n+export function getUser(): User | null {\n+  return signedInUser ?? null;",
               "affectedFile": "checkout/order.ts",
-              "affectedLine": 42,
+              "affectedLine": 47,
               "affectedCode": "saveCard(getUser().id, card);",
-              "compilerError": "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'."
+              "compilerError": "checkout/order.ts(47,12): error TS2531: Object is possibly 'null'."
             },
             "plainSummary": "Saved cards assumes every buyer has an account. Guest checkout removes that. Neither agent can settle this alone.",
             "question": "Can guests save cards?",
@@ -2733,7 +2733,7 @@
               },
               {
                 "at": "2026-10-23T10:12",
-                "text": "Combined type check failed in Alice's checkout/order.ts:42 (SHOP-212 assumed every buyer has an account)"
+                "text": "Combined type check failed in Alice's checkout/order.ts:47 (SHOP-212 assumed every buyer has an account)"
               },
               {
                 "at": "2026-10-23T10:20",
@@ -2928,9 +2928,9 @@
               "changedSymbol": "getUser",
               "diff": "--- a/account/user.ts\n+++ b/account/user.ts\n-export function getUser(): User {\n-  if (!signedInUser) {\n-    throw new Error(\"No one is signed in\");\n-  }\n-  return signedInUser;\n+export function getUser(): User | null {\n+  return signedInUser ?? null;",
               "affectedFile": "checkout/order.ts",
-              "affectedLine": 42,
+              "affectedLine": 47,
               "affectedCode": "saveCard(getUser().id, card);",
-              "compilerError": "checkout/order.ts(42,12): error TS2531: Object is possibly 'null'."
+              "compilerError": "checkout/order.ts(47,12): error TS2531: Object is possibly 'null'."
             },
             "plainSummary": "Saved cards assumes every buyer has an account. Guest checkout removes that. Neither agent can settle this alone.",
             "question": "Can guests save cards?",
