@@ -1,12 +1,12 @@
-# Lucid spike findings
+# Lucid spike: what still needed checking
 
-Filled in by partner 2 during task 8.
+The spike itself is done. Its full write-up is `LUCID-FINDINGS.md` in `C:\Users\taych\hackathon\lucid-spike`.
+Ticket 062 fills in this table: one row per item from the spike's "Not verified" list.
 
-| Step | Worked? | Time | Notes |
+| Item | Works? | How it was checked | Notes |
 |---|---|---|---|
-| 1. Scaffold + dev mode | TODO | | |
-| 2. Draw 3 boxes + 2 lines | TODO | | |
-| 3. Panel ↔ server (websocket or polling?) | TODO | | |
-| 4. Server message turns a box red | TODO | | |
-
-**Decision:** Plan A (Lucid) / Plan B (web board). TODO
+| Lines stay attached when a block is dragged | TODO | | |
+| `in_progress` color on a real block | TODO | | |
+| `existing` color on a real block | TODO | | |
+| Polling fallback takes over when the WebSocket is down | TODO | | |
+| Duplicate panels after reloads (`persist: true`) | TODO | | |

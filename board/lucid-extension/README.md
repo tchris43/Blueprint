@@ -1,8 +1,8 @@
 # Lucid extension (Plan A)
 
-Owner: partner 2. **Not scaffolded yet.** Follow [task 8](../../tasks/board/8-lucid-spike.md):
-create it with Lucid's official "Create Extensions" skill (Lucid developer docs → AI tools), so the
-files match what `lucid-extension-sdk` expects. Don't hand-write the scaffold.
+**Empty until ticket 020.** A working spike exists at `C:\Users\taych\hackathon\lucid-spike`
+(scaffolded with Lucid's "Create Extensions" skill). Ticket 020 moves it here and points it at our
+server. Read its `LUCID-FINDINGS.md` first, especially the Gotchas section.
 
 ## How it should work
 - A right-side Panel (iframe) connects to `ws://localhost:4000/live` and posts each `BoardState` to the extension.
