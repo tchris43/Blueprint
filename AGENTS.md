@@ -12,8 +12,9 @@ work breaks silently. Today that's found at code review, at merge, or in product
 
 **Blueprint** is a shared, live map of the codebase. Every teammate's agent reports to it as it works.
 - Agents work freely. Nothing waits for approval up front.
-- After every edit, Blueprint merges everyone's in-progress work **in memory** (never touching
-  anyone's branch) and type-checks the combination.
+- **Before** every edit lands, Blueprint merges the proposed change with everyone's in-progress work
+  **in memory** (never touching anyone's branch) and type-checks the combination. A silent break is
+  caught while it's still cheap to change course, before anyone pushes. (Decided 2026-10-26, ticket 014.)
 - When one person's change breaks another's, Blueprint pauses **only those two agents**, turns the
   compiler error into a plain-English question, and puts it on the shared board. A non-technical PM
   sees a plain-English "Product view".
@@ -24,8 +25,8 @@ work breaks silently. Today that's found at code review, at merge, or in product
 ## The demo story (everything serves this)
 Priya (PM), Alice and Bob (devs) each run Claude Code. Sam (dev) is unaffected. App: `demo-shop`.
 1. SHOP-212 (Alice): save cards. Her agent writes `saveCard(getUser().id, card)` in `checkout/order.ts`.
-2. SHOP-219 (Bob): guest checkout. His agent changes `getUser(): User` to `User | null`.
-3. The combined check fails: `checkout/order.ts:47 error TS2531: Object is possibly 'null'`. Only Alice and Bob pause.
+2. SHOP-219 (Bob): guest checkout. His agent tries to change `getUser(): User` to `User | null`.
+3. Before that edit lands, the combined check fails, so the edit is refused: `checkout/order.ts:47 error TS2531: Object is possibly 'null'`. Only Alice and Bob pause.
 4. Priya picks on the board: "No, offer guests 'Create an account'" / "Yes, save against a verified email".
 5. Both agents get the decision and resume. Done: combined tests pass.
 6. Drift: Alice's agent added `cardCache.ts`, unannounced and untested. It's flagged, and Alice keeps or removes it.

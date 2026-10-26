@@ -54,6 +54,7 @@ After midday day 2: 011 reset and 010 replay (rehearsal safety), then 073 backup
 | [011](011-rehearsal-reset.md) | One command resets everything for a rehearsal | core | server | build | 021 | Taylor | todo |
 | [012](012-serialize-checks.md) | Run combined checks one at a time | core | server | build | — | Taylor | todo |
 | [013](013-live-agent-rehearsal.md) ★ | Does the conflict really happen with live agents? | medium | demo-shop | verify | 070, 001, 002 |  | todo |
+| [014](014-check-before-edit.md) ★ | Check before the edit lands, not after | core | server | build | 001 | Taylor | todo |
 | [020](020-lucid-move-spike.md) ★ | Move the Lucid spike into the repo and point it at our server | medium | board-lucid | build | — |  | todo |
 | [021](021-lucid-render-board.md) ★ | Lucid: draw the whole map from BoardState, in columns | medium | board-lucid | build | 020 |  | todo |
 | [022](022-lucid-status-styles.md) ★ | Lucid: status styles that match the mockup legend | medium | board-lucid | build | 021 |  | todo |
