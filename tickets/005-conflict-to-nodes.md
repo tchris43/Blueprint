@@ -14,7 +14,7 @@ Scenes 2–6: boxes turn dashed while being built, red in the collision, purple 
 - Decision → both nodes `resolved`, history entry with the decision text.
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 New file `server/test/board.test.ts` (pure function, no tsc needed — build a fake `CheckResult`):
 - Bob editing `account/user.ts` marks `account/user.ts#getUser` as `changing` with owner `bob`
 - a conflict on `checkout/order.ts:47` with changed symbol `getUser` gets `nodeIds` `[account/user.ts#getUser, checkout/order.ts#placeOrder]`, both `conflict`

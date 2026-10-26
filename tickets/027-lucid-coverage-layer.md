@@ -12,7 +12,7 @@ Scene 9: one toggle shows cardCache.ts at 0% and AccountPage at 40%, so the risk
 - Apply `styleFor(..., 'coverage')` fills; restore status styles when switching back.
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 Add to `test/plan.test.ts`:
 - toggling the layer changes only fill and tag, never labels or positions
 

@@ -10,7 +10,7 @@ The whole demo assumes Alice's agent writes `saveCard(getUser().id, card)` and B
 ## What to do
 - Using the exact prompts from the demo script (070), run Alice's and Bob's agents 3 times each from a fresh `reset-demo.sh`.
 - Record in `docs/verify/live-agents.md`: did each agent write the expected change? Did the conflict fire? How long did it take?
-- If it misses, propose a change to `demo-shop/TICKETS.md` or the prompts. Don't change demo-shop yourself; that's Taylor's call.
+- If it misses, propose a change to `demo-shop/TICKETS.md` or the prompts. Talk it over with the team before changing demo-shop, since the whole demo runs on it.
 
 ## Done when
 - [ ] 3 runs recorded with results

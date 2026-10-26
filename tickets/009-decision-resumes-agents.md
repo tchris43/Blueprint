@@ -12,7 +12,7 @@ Scene 5–6: Priya clicks once and both agents carry on. A double-click or a sec
 - After a decision, the next edit from a resumed agent sets it back to `working`.
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 New file `server/test/decision.test.ts` (in-process app from 008):
 - deciding sets `decision` and makes both agents `resumed`; a third agent is untouched
 - unknown conflict or option → 404

@@ -12,7 +12,7 @@ Scenes 4, 8 and 9 use the drift, explain and coverage modules for real: the plai
 - Export the Express `app` from `server/src/index.ts` (listen in a separate `main.ts`) so it can be tested in-process.
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 New file `server/test/integration.test.ts` (in-process app, real demo-shop):
 - after `POST /intent` for alice and an edit to a file not on the list, `GET /state` has one drift entry for that file
 - with no `ANTHROPIC_API_KEY`, the demo conflict's `question` is `Can guests save cards?` (the fallback path)

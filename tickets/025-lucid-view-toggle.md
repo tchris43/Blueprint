@@ -12,7 +12,7 @@ Scene 4: Priya flips to Product view and every box speaks her language. This is 
 - Only block text should change; never delete and redraw blocks (people may have moved them).
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 Add to `test/plan.test.ts`:
 - switching view changes every label and no `bpId`, `x` or `y`
 

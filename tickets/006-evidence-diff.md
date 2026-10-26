@@ -12,7 +12,7 @@ Scene 4's 'Why was this flagged?' box: judges see the exact line Bob changed, wh
 - Fill `evidence.diff` in `server/src/index.ts`.
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 Add to `server/test/combinedCheck.test.ts`:
 - the demo conflict's diff contains `-export function getUser(): User {` and `+export function getUser(): User | null {`
 - the diff is under 15 lines

@@ -13,7 +13,7 @@ Scene 5: Priya clicks one button inside Lucid, and both agents resume. This is t
 - Disable the buttons after a click so a double-click can't send twice.
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 Add to `test/panelView.test.ts`:
 - an undecided card has one button per option with the right `data-option-id`
 - a decided card has no option buttons

@@ -13,7 +13,7 @@ Scene 4: Priya reads the plain-English question in the panel, and a judge can op
 - Match the card in `docs/mockup/scene-4-collision.png`: summary, question, then the collapsible evidence.
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 New file `test/panelView.test.ts`:
 - scene 4's card contains `TS2531` and the affected code line
 - product view shows `plainSummary`; code view shows the technical line

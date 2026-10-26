@@ -13,7 +13,7 @@ Scenes 4–6: only Alice's and Bob's agents stop, each says why, and both pick u
 - Decide what happens to an agent that is paused but not editing (it may just keep thinking). Write the choice down in `hooks/README.md`.
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 New file `server/test/hooks/pre-tool-use.test.ts` (same harness as 001):
 - paused status → `permissionDecision: "deny"` and the reason names the changed function
 - unseen decision → `additionalContext` contains the decision text and there is NO `permissionDecision` (normal permissions still apply)

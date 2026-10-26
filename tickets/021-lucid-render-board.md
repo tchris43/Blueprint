@@ -13,7 +13,7 @@ Scenes 1–9: the map in Lucid shows every box and arrow, and new boxes (like 'C
 - Origin from `viewport.findAvailableSpace`, never hard-coded coordinates (see the findings).
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 New file `board/lucid-extension/editorextensions/blueprint-board/test/plan.test.ts` (vitest, using `shared/sample-state.json`):
 - scene 1 gives 6 blocks whose `bpId`s equal the node ids
 - nodes in the same column share an `x`; columns don't overlap

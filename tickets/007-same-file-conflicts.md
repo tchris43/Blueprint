@@ -12,7 +12,7 @@ Judges will ask 'what if both edit the same file?'. Today the combined check det
 - Pick the 2–3 options a human would actually want here (that's a judgment call — write them down).
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 Add to `server/test/board.test.ts`:
 - two participants editing `checkout/order.ts` produce one conflict with `kind: "same_file"` and both names in `between`
 - both agents are `paused`

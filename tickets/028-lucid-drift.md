@@ -12,7 +12,7 @@ Scene 8: cardCache.ts appears as a yellow dashed box that nobody planned, and Al
 - The drifted file's block uses the drift style from 022.
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 Add to `test/panelView.test.ts`:
 - an unresolved drift card has Keep and Remove buttons; a resolved one shows the outcome and no buttons
 

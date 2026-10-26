@@ -15,7 +15,7 @@ Every scene: the boxes on the map come from the real code, not sample data. This
 - Replace the sample scene-0 start in `server/src/store.ts` with the real map.
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 New file `server/test/codeMap.test.ts`, run against the real demo-shop:
 - has a node `account/user.ts#getUser`, `auth/login.ts#requireLogin`, `checkout/order.ts#placeOrder`, `payments/charge.ts#chargeCard`
 - has a `calls` edge `checkout/order.ts#placeOrder → payments/charge.ts#chargeCard` and `auth/login.ts#requireLogin → account/user.ts#getUser`

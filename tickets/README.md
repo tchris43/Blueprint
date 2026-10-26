@@ -10,10 +10,10 @@ The team's backlog. Each ticket is 1–3 hours and touches one area, so two peop
 
 **Only one in-progress ticket per person.** Finish or un-claim before taking another.
 
-**Difficulty:** `starter` = small and self-contained · `medium` = more moving parts · `core` = Taylor only, on the critical path.  
+**Difficulty:** `starter` = small and self-contained · `medium` = more moving parts · `core` = engine work on the critical path.  
 **Type:** `build` = tests define done · `design` = propose options, the team picks · `verify` = try to break it and report · `story` = demo, pitch, writing.
 
-> **Tests marked "proposed"** (tickets 001, 002, 004, 005, 006, 007, 008, 009, 010, 011, 012, 021, 022, 023, 024, 025, 026, 027, 028) need Taylor's review before anyone starts those tickets.
+> **Tests marked "proposed"** (tickets 001, 002, 004, 005, 006, 007, 008, 009, 010, 011, 012, 021, 022, 023, 024, 025, 026, 027, 028) get a quick look from the team before anyone starts those tickets.
 
 ## Critical path: end-to-end demo by midday, day 2
 Three tracks run in parallel and meet at the live rehearsal:

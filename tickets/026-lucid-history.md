@@ -13,7 +13,7 @@ Scene 9, the handoff: a new developer clicks getUser and reads what was planned,
 - Match `docs/mockup/scene-9-handoff-coverage.png`.
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 Add to `test/panelView.test.ts`:
 - getUser's history in scene 9 renders all 5 entries in order, including Priya's decision
 - no selection renders 'Click a box to see its history'

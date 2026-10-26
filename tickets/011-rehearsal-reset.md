@@ -12,7 +12,7 @@ We'll rehearse the demo 10+ times. Resetting the server, both demo-shop clones a
 - Print what it did, one line per step.
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 New file `server/test/rehearse-reset.test.ts`:
 - `--dry-run` lists the reset steps for every configured clone and changes nothing
 - a clone path that doesn't exist is reported, and the other steps still run

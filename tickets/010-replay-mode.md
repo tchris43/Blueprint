@@ -12,7 +12,7 @@ Insurance for the live demo: if an agent wanders on stage, we replay the rehears
 - Add `pnpm replay <name> [--speed 2]` that resets the server and re-posts them with the same gaps (scaled).
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 New file `server/test/replay.test.ts`:
 - recording writes one JSON line per request, in order, with the body unchanged
 - replay posts the requests in the same order

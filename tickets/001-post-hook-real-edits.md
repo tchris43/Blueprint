@@ -15,7 +15,7 @@ Scenes 2–3: every edit Alice's and Bob's agents make shows up on the map while
 - Ignore edits to files outside the project folder (e.g. the agent editing `~/.claude/...`).
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 New file `server/test/hooks/post-tool-use.test.ts`: spawn `node hooks/post-tool-use.mjs` with JSON on stdin and a throwaway HTTP server on a random port (`BLUEPRINT_SERVER`).
 - sends `{participant, files:[{path, content}]}` with a repo-relative, forward-slash path and the file's full content
 - exits 0 with no output when `BLUEPRINT_PARTICIPANT` is unset

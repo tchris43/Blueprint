@@ -13,7 +13,7 @@ Scene 4 is read in one glance: dashed = in progress, red = conflict, green = bui
 - Put the tag ('CONFLICT · DECIDE') on its own line; note the findings' warning about ProcessBlock's single text area.
 
 ## Tests
-**Tests to add** *(proposed — Taylor reviews these before anyone starts)*
+**Tests to add** *(proposed — the team looks these over before anyone starts)*
 Add to `test/plan.test.ts`:
 - `conflict` → red stroke, light red fill
 - `in_progress` → dashed, stroke in the owner's color
