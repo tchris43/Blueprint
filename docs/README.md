@@ -9,4 +9,4 @@ Owned by the `demo-pitch` ticket owners, except where noted. These are plain mar
 - `demo-patches/`: Alice's and Bob's demo changes as patches for demo-shop (Taylor). Kept here so the demo agents never see them
 - `how-to-work-with-ai.md`, `workflow.md`: how the team works
 - `integration.md`: where each module plugs into the server (Taylor)
-- `../shared/labels.json`: the plain-English names in the Product view (ticket 043).
+- `../shared/labels.json`: the plain-English names in the Product view (ticket 403).

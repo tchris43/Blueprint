@@ -14,7 +14,7 @@ work breaks silently. Today that's found at code review, at merge, or in product
 - Agents work freely. Nothing waits for approval up front.
 - **Before** every edit lands, Blueprint merges the proposed change with everyone's in-progress work
   **in memory** (never touching anyone's branch) and type-checks the combination. A silent break is
-  caught while it's still cheap to change course, before anyone pushes. (Decided 2026-10-26, ticket 014.)
+  caught while it's still cheap to change course, before anyone pushes. (Decided 2026-10-26, ticket 102.)
 - When one person's change breaks another's, Blueprint pauses **only those two agents**, turns the
   compiler error into a plain-English question, and puts it on the shared board. A non-technical PM
   sees a plain-English "Product view".

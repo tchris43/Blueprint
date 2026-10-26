@@ -69,7 +69,7 @@ git pull --rebase                      # get everyone's latest work
 # ...make changes...
 pnpm test                              # must pass before you push
 git add -A
-git commit -m "040: flag files that weren't in the plan"
+git commit -m "603: flag files that weren't in the plan"
 git pull --rebase
 git push
 ```

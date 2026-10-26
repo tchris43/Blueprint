@@ -1,6 +1,6 @@
 # server: the Blueprint engine
 
-Core engine: Taylor. `src/drift`, `src/coverage`, `src/explain` are the `modules` tickets (040–042). Node + TypeScript + Express + ws. All state is in memory.
+Core engine: Taylor. `src/drift`, `src/coverage`, `src/explain` are the `modules` tickets (401, 603, 604). Node + TypeScript + Express + ws. All state is in memory.
 
     pnpm server           # from the repo root, http://localhost:4000
     pnpm test:engine      # combined-check tests against ../demo-shop
@@ -10,7 +10,7 @@ Core engine: Taylor. `src/drift`, `src/coverage`, `src/explain` are the `modules
 | `src/combinedCheck.ts` | Core. Type-checks base + A, base + B, base + A + B in temp folders. An error only in A + B is a conflict. |
 | `src/index.ts` | Endpoints + `/live` websocket |
 | `src/store.ts` | In-memory state |
-| `src/drift/`, `src/coverage/`, `src/explain/` | Modules (tickets 040–042). Plug-in points: `docs/integration.md` |
+| `src/drift/`, `src/coverage/`, `src/explain/` | Modules (tickets 401, 603, 604). Plug-in points: `docs/integration.md` |
 | `test/fixtures/` | Alice's and Bob's in-progress demo edits |
 
 ## Endpoints
@@ -18,5 +18,5 @@ Core engine: Taylor. `src/drift`, `src/coverage`, `src/explain` are the `modules
 `POST /drift/resolve` · `POST /reset` · `POST /demo/scene` (rehearsal: push sample scene N) · `ws /live`
 
 ## Remaining work
-Tracked as `server` tickets in [tickets/](../tickets/README.md) (001–013). Until the code map
-(004) lands, the board starts from sample scene-0.
+Tracked as `server` tickets in [tickets/](../tickets/README.md) (rings 1–6). Until the code map
+(201) lands, the board starts from sample scene-0.

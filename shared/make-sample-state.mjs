@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const here = dirname(fileURLToPath(import.meta.url));
 
 // Product-view names for the SAMPLE data only, taken from the mockup.
-// The live server reads shared/labels.json instead (ticket 043).
+// The live server reads shared/labels.json instead (ticket 403).
 const labels = {
   nodes: {
     "checkout/CheckoutPage.ts": { plainName: "Checkout page", plainDesc: "Where buyers pay" },

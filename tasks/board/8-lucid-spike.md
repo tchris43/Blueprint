@@ -1,6 +1,6 @@
 # Task 8: Lucid extension spike (2 hours max)
 
-> **Done.** The spike works; see `LUCID-FINDINGS.md` in the spike folder. Remaining Lucid work is tickets 020–028 in `tickets/`. This page is kept for reference.
+> **Done.** The spike works; see `LUCID-FINDINGS.md` in the spike folder. Remaining Lucid work is tickets 205–209, 305, 404, 406, 601, 606, 607 in `tickets/`. This page is kept for reference.
 
 **Goal:** find out whether we can show the map inside Lucid itself (Plan A). The web board (tasks 1–7) is Plan B, and it's what we demo if this doesn't work.
 

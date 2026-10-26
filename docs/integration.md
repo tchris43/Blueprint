@@ -1,6 +1,6 @@
 # Integration plan: where each module plugs into the server
 
-Wiring these in is ticket 008, after each module's tests pass. Every spot is marked in the code
+Wiring these in is tickets 402 (explain) and 605 (drift, coverage), after each module's tests pass. Every spot is marked in the code
 with an `INTEGRATION(<module>)` comment, so `grep -rn INTEGRATION server/src` finds them even after
 line numbers move.
 

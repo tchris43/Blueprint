@@ -23,7 +23,7 @@ git pull --rebase    # get everyone else's work first
 pnpm test            # before EVERY push; must pass
 pnpm test:drift      # your ticket's own tests (or test:board, test:coverage, …)
 git add -A
-git commit -m "040: flag files that weren't in the plan"
+git commit -m "603: flag files that weren't in the plan"
 git pull --rebase    # again, in case someone pushed meanwhile
 git push
 ```

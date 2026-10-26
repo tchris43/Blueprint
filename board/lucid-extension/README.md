@@ -1,7 +1,7 @@
 # Lucid extension (Plan A)
 
-**Empty until ticket 020.** A working spike exists at `C:\Users\taych\hackathon\lucid-spike`
-(scaffolded with Lucid's "Create Extensions" skill). Ticket 020 moves it here and points it at our
+**Empty until ticket 205.** A working spike exists at `C:\Users\taych\hackathon\lucid-spike`
+(scaffolded with Lucid's "Create Extensions" skill). Ticket 205 moves it here and points it at our
 server. Read its `LUCID-FINDINGS.md` first, especially the Gotchas section.
 
 ## How it should work
