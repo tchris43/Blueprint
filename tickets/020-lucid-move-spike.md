@@ -2,7 +2,7 @@
 
 **Labels:** `medium` · `board-lucid` · `build`  
 **Depends on:** nothing  
-**Owner:** _unclaimed_
+**Owner:** Taylor
 
 ## Why it matters
 Plan A for every scene: the board lives inside Lucid. The spike works but lives outside the repo and talks to its own test server.

@@ -13,15 +13,15 @@ The team's backlog. Each ticket is 1–3 hours and touches one area, so two peop
 **Difficulty:** `starter` = small and self-contained · `medium` = more moving parts · `core` = engine work on the critical path.  
 **Type:** `build` = tests define done · `design` = propose options, the team picks · `verify` = try to break it and report · `story` = demo, pitch, writing.
 
-> **Tests marked "proposed"** (tickets 001, 002, 004, 005, 006, 007, 008, 009, 010, 011, 012, 021, 022, 023, 024, 025, 026, 027, 028) get a quick look from the team before anyone starts those tickets.
+> **Tests marked "proposed"** (tickets 001, 002, 004, 005, 006, 007, 008, 009, 010, 011, 012, 014, 015, 016, 021, 022, 023, 024, 025, 026, 027, 028, 044) get a quick look from the team before anyone starts those tickets.
 
 ## Critical path: end-to-end demo by midday, day 2
 Three tracks run in parallel and meet at the live rehearsal:
 
 ```
 Server (Taylor):   004 code map → 005 edits/conflicts → nodes → 009 decision resumes agents
-                   001 post hook ┐
-                   002 pre hook  ┴→ real agents in the loop
+                   001 post hook → 014 check before edit ┐
+                   002 pre hook  → 015 pause on any tool ┴→ real agents in the loop
 Lucid board:       020 move spike → 021 draw map → 022 status styles → 023 conflict card → 024 decision buttons
 Demo story:        070 demo script (exact prompts)
                                    ↓
@@ -29,6 +29,7 @@ Demo story:        070 demo script (exact prompts)
 ```
 
 After midday day 2: 011 reset and 010 replay (rehearsal safety), then 073 backup video.  
+Off the critical path: 016 (layer 2, tests on the combined code), then stretch 044 (layer 3, Claude assumption review).  
 **Fallback:** if 020–021 aren't working by the morning of day 2, switch the demo to the web board (030–032).
 
 ## Already done (no ticket needed)
@@ -54,7 +55,9 @@ After midday day 2: 011 reset and 010 replay (rehearsal safety), then 073 backup
 | [011](011-rehearsal-reset.md) | One command resets everything for a rehearsal | core | server | build | 021 | Taylor | todo |
 | [012](012-serialize-checks.md) | Run combined checks one at a time | core | server | build | — | Taylor | todo |
 | [013](013-live-agent-rehearsal.md) ★ | Does the conflict really happen with live agents? | medium | demo-shop | verify | 070, 001, 002 |  | todo |
-| [014](014-check-before-edit.md) ★ | Check before the edit lands, not after | core | server | build | 001 | Taylor | todo |
+| [014](014-check-before-edit.md) ★ | Pre-edit combined check: deny a conflicting edit before it's saved | core | server | build | 001 | Taylor | todo |
+| [015](015-pause-on-any-tool.md) ★ | A paused agent stops on its next action of any kind | core | server | build | 002 | Taylor | todo |
+| [016](016-layer-2-combined-tests.md) | Layer 2: run the related tests on the combined code | medium | server | build | 014 |  | todo |
 | [020](020-lucid-move-spike.md) ★ | Move the Lucid spike into the repo and point it at our server | medium | board-lucid | build | — |  | todo |
 | [021](021-lucid-render-board.md) ★ | Lucid: draw the whole map from BoardState, in columns | medium | board-lucid | build | 020 |  | todo |
 | [022](022-lucid-status-styles.md) ★ | Lucid: status styles that match the mockup legend | medium | board-lucid | build | 021 |  | todo |
@@ -71,6 +74,7 @@ After midday day 2: 011 reset and 010 replay (rehearsal safety), then 073 backup
 | [041](041-module-coverage.md) | Coverage mapper | starter | modules | build | — |  | todo |
 | [042](042-module-explain.md) | Conflict explainer — write the prompt | starter | modules | build | — |  | todo |
 | [043](043-labels-json.md) | Plain-English names for every box (labels.json) | starter | modules | build | — |  | todo |
+| [044](044-layer-3-assumption-review.md) | Stretch — Layer 3: ask Claude whether one change breaks the other's assumptions | medium | modules | build | 006, 016 |  | todo |
 | [050](050-design-lucid-look.md) | Design the Lucid board's look — two versions | medium | board-lucid | design | 022 |  | todo |
 | [051](051-design-priya-test.md) | Test Priya's decision panel on a real non-technical person | starter | demo-pitch | design | 024 |  | todo |
 | [052](052-design-plain-copy.md) | Plain-English copy for every status and card | starter | demo-pitch | design | — |  | todo |
