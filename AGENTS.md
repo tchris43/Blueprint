@@ -43,7 +43,7 @@ Claude Code (Bob)   --hooks-->       |
 ## Who owns what
 Work is split into tickets by area: `server`, `board-lucid`, `board-web`, `modules`, `demo-shop`,
 `demo-pitch`. Each ticket's owner is listed in `tickets/README.md`. Core server work
-(`server/`, `hooks/`, `shared/contract.ts`) is Taylor's.
+(`server/`, `hooks/`, `shared/contract.ts`) is assigned to Taylor.
 
 ## Working rules (everyone, every folder, with or without AI)
 1. **Explain the plan before writing code.** Say in plain words what you'll change and why, and
@@ -57,5 +57,6 @@ Work is split into tickets by area: `server`, `board-lucid`, `board-web`, `modul
 
 ## Also
 - Prefer boring, simple code. Don't build auth, databases, deployment, or non-TypeScript support.
-- Work on a branch and merge by pull request (`docs/workflow.md`).
+- Everyone commits straight to `main`: pull before you start, run `pnpm test`, pull again, push
+  small and often (`docs/workflow.md`). Don't create branches.
 - Package manager is pnpm. Run `pnpm doctor` if setup seems off.

@@ -5,8 +5,8 @@ The team's backlog. Each ticket is 1–3 hours and touches one area, so two peop
 ## How to claim a ticket
 1. Pick one whose **Depends on** tickets are done.
 2. Put your name in its **Owner** line *and* in the table below, set Status to `in progress`, and commit that change.
-3. Create a branch named `<name>/<ticket-number>`, e.g. `sam/040`.
-4. When it's done (every box ticked, including the 2-minute explain-back), open a pull request and set Status to `review`.
+3. Push that commit to `main` right away so nobody else picks it up. We all work on `main`; see [docs/workflow.md](../docs/workflow.md).
+4. When it's done (every box ticked, including the 2-minute explain-back with a teammate), set Status to `done` and push.
 
 **Only one in-progress ticket per person.** Finish or un-claim before taking another.
 

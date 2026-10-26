@@ -41,14 +41,14 @@ const installed = ["node_modules", "server/node_modules", "board/web/node_module
 check("dependencies installed", installed, "Run: pnpm install");
 
 if (installed) {
-  check("contract tests run and pass", run("pnpm check:contract") !== null, "Run `pnpm check:contract` and send Taylor the output");
+  check("contract tests run and pass", run("pnpm check:contract") !== null, "Run `pnpm check:contract` and post the output in the team chat");
   // The board tests fail on purpose until the board-web tickets are done; we only check they RUN.
   const boardTests = runAnyway("pnpm --filter @blueprint/board-web exec vitest run");
-  check("board tests run (failing is OK at the start)", /Tests\s+.*\d+/.test(boardTests.output), "Run `pnpm test:board` and send Taylor the output");
+  check("board tests run (failing is OK at the start)", /Tests\s+.*\d+/.test(boardTests.output), "Run `pnpm test:board` and post the output in the team chat");
 }
 
 const demoShop = join(root, "..", "demo-shop");
-console.log(existsSync(demoShop) ? "OK   demo-shop found next to this repo" : "INFO demo-shop not found next to this repo (only Taylor needs it)");
+console.log(existsSync(demoShop) ? "OK   demo-shop found next to this repo" : "INFO demo-shop not found next to this repo (only the server owner needs it)");
 
 console.log(problems === 0 ? "\nAll good. You're ready." : `\n${problems} thing(s) to fix. Fix them top to bottom, then run pnpm doctor again.`);
 process.exit(problems === 0 ? 0 : 1);

@@ -54,25 +54,26 @@ Push a sample scene to every connected board (handy for rehearsals):
 ```
 curl -X POST localhost:4000/demo/scene -H "Content-Type: application/json" -d "{\"scene\":3}"
 ```
-The server type-checks against a `demo-shop` folder next to this repo. Only Taylor needs that one.
+The server type-checks against a `demo-shop` folder next to this repo. Only whoever runs the server needs that one.
 
 ## 5. Install the hooks (Taylor, Alice's and Bob's laptops on demo day)
 
 See [hooks/README.md](hooks/README.md). In short: copy `hooks/example-settings.json` into
 `demo-shop/.claude/settings.local.json`, fix the paths, and set `BLUEPRINT_PARTICIPANT`.
 
-## 6. How we work: branches and pull requests
+## 6. How we work: everyone on `main`
 
-Work comes from [tickets/](tickets/README.md). Claim one, then work on a branch named after you and the ticket. Never work on `main` directly.
+Work comes from [tickets/](tickets/README.md). Claim one and push the claim. Everyone commits straight to `main`; each ticket stays in one area, so we rarely touch the same files.
 ```
-git checkout -b sam/040                # <your-name>/<ticket-number>
+git pull --rebase                      # get everyone's latest work
 # ...make changes...
 pnpm test                              # must pass before you push
 git add -A
 git commit -m "040: flag files that weren't in the plan"
-git push -u origin sam/040
+git pull --rebase
+git push
 ```
-Then open a pull request on GitHub. Taylor reviews and merges it. Full details are in [docs/workflow.md](docs/workflow.md).
+Push small and often. Full details are in [docs/workflow.md](docs/workflow.md).
 
 ## Useful commands
 

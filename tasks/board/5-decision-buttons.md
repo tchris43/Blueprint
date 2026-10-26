@@ -13,6 +13,6 @@
 - [ ] In Sample mode, clicking jumps to the next scene so the demo still flows without a server
 - [ ] If the server is down, nothing crashes (check the browser console)
 
-**Mock the server until it's ready:** write `postDecision` first with a `console.log` of what it *would* send. Swap in the real `fetch` once Taylor says `/decision` works.
+**Mock the server until it's ready:** write `postDecision` first with a `console.log` of what it *would* send. Swap in the real `fetch` once `/decision` works on the server (ticket 009).
 
 **Hint:** the body shape is `DecisionRequest` in `shared/contract.ts`. Use `fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) })`.

@@ -20,6 +20,6 @@
 
 **Done when**
 - [ ] `lucid-findings.md` says which steps worked, what broke, and how long each took
-- [ ] You and Taylor decide: Plan A or Plan B for the demo
+- [ ] The team decides together: Plan A or Plan B for the demo
 
 **Hint:** store our node id in each block's shape data when you draw it. Then a new state can find and recolor the existing block instead of drawing a duplicate.
