@@ -10,7 +10,7 @@
 
 **Done when**
 - [ ] `pnpm test:board` passes every test in `task3-controls.test.tsx`
-- [ ] Product view swaps every box to plain English (Priya's view)
+- [ ] Product view swaps every box to plain English (Chris's view)
 - [ ] The Test coverage layer colors boxes by "% tested"
 - [ ] Tab key + Enter can work every button (no mouse needed)
 

@@ -2,7 +2,7 @@
 // RULE: never change this file without telling the whole team first —
 // the server, the web board and the Lucid extension all depend on these shapes.
 
-export type ParticipantId = string; // "alice", "bob", "priya"
+export type ParticipantId = string; // "alice", "bob", "chris"
 
 export type Participant = {
   id: ParticipantId;

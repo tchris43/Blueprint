@@ -41,7 +41,7 @@ You're helping me set up the starting code for a 3-day hackathon project called 
 
 ## 3. Demo story (everything should serve this)
 
-The cast is Priya (PM), Alice (dev) and Bob (dev), each with Claude Code in VS Code. Sam (dev) works elsewhere and is unaffected.
+The cast is Chris (PM), Alice (dev) and Bob (dev), each with Claude Code in VS Code. Sam (dev) works elsewhere and is unaffected.
 
 The app is `demo-shop`, a tiny online store. There are two tickets:
 
@@ -53,14 +53,14 @@ Scenes:
 1. Both agents work freely, and their changes appear live on the map.
 2. Bob's edit to `getUser()` makes the combined type check fail at Alice's line:
    `checkout/order.ts:42 error TS2531: Object is possibly 'null'.`
-3. Only Alice's and Bob's agents pause. The board shows the conflict, with plain English for Priya: "Saved cards assumes every buyer has an account; guest checkout removes that. Can guests save cards?"
-4. Priya picks one of two options on the board:
+3. Only Alice's and Bob's agents pause. The board shows the conflict, with plain English for Chris: "Saved cards assumes every buyer has an account; guest checkout removes that. Can guests save cards?"
+4. Chris picks one of two options on the board:
    - "No — offer guests 'Create an account to save your card'"
    - "Yes — save it against a verified email"
 5. The decision is sent to both agents. They adjust and resume.
 6. Done: both branches merge, and the combined tests pass.
 7. Drift: Alice's agent added `cardCache.ts`, which it never announced and which has no tests. It's flagged, and Alice keeps it or removes it.
-8. Handoff: clicking `getUser()` on the map shows its full history, including Priya's decision.
+8. Handoff: clicking `getUser()` on the map shows its full history, including Chris's decision.
 
 ## 4. Architecture
 

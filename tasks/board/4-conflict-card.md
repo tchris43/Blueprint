@@ -12,6 +12,6 @@
 - [ ] `pnpm test:board` passes every test in `task4-conflict-card.test.tsx`
 - [ ] Product view shows the plain-English summary, and Code view shows the technical line
 - [ ] "Why was this flagged?" opens to show the diff, the broken line and the compiler error in a code font
-- [ ] After scene 5 the card shows Priya's decision instead of buttons
+- [ ] After scene 5 the card shows Chris's decision instead of buttons
 
 **Hint:** HTML's `<details><summary>Why was this flagged?</summary>…</details>` gives you open/close for free, with no state needed.

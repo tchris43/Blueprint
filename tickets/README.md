@@ -99,7 +99,7 @@ After midday day 2: 303 reset and 304 replay (rehearsal safety), then 306 backup
 | [404](404-lucid-view-toggle.md) | Lucid panel: Product / Code view toggle | medium | board-lucid | build | 206, 208 |  | todo |
 | [405](405-design-plain-copy.md) | Plain-English copy for every status and card | starter | demo-pitch | design | — |  | todo |
 | [406](406-design-lucid-look.md) | Design the Lucid board's look — two versions | medium | board-lucid | design | 207 |  | todo |
-| [407](407-design-priya-test.md) | Test Priya's decision panel on a real non-technical person | starter | demo-pitch | design | 209 |  | todo |
+| [407](407-design-chris-test.md) | Test Chris's decision panel on a real non-technical person | starter | demo-pitch | design | 209 |  | todo |
 
 ### Ring 5 · Catch more kinds of break
 | # | Title | Difficulty | Area | Type | Depends on | Owner | Status |

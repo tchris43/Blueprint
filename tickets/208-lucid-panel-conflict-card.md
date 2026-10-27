@@ -5,7 +5,7 @@
 **Owner:** _unclaimed_
 
 ## Why it matters
-Scene 4: Priya reads the plain-English question in the panel, and a judge can open the evidence and see it's a real compiler error.
+Scene 4: Chris reads the plain-English question in the panel, and a judge can open the evidence and see it's a real compiler error.
 
 ## What to do
 - Add `src/panelView.ts` with `renderConflictCard(conflict, view, participants): string` (HTML). The extension sends the HTML to the panel with `panel.sendMessage`.

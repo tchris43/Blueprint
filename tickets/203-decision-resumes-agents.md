@@ -5,7 +5,7 @@
 **Owner:** Taylor
 
 ## Why it matters
-Scene 5–6: Priya clicks once and both agents carry on. A double-click or a second person clicking mustn't change the decision mid-demo.
+Scene 5–6: Chris clicks once and both agents carry on. A double-click or a second person clicking mustn't change the decision mid-demo.
 
 ## What to do
 - `POST /decision` mostly exists. Add: history entries (via 202), and a 409 if the conflict is already decided.

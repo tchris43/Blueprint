@@ -31,7 +31,7 @@ const COLUMN_WIDTH = 240;
 const ROW_HEIGHT = 110;
 
 const participants = [
-  { id: "priya", name: "Priya", role: "pm", color: "#6d28d9" },
+  { id: "chris", name: "Chris", role: "pm", color: "#6d28d9" },
   { id: "alice", name: "Alice", role: "dev", color: "#2563eb", ticket: "SHOP-212" },
   { id: "bob", name: "Bob", role: "dev", color: "#c2410c", ticket: "SHOP-219" },
   { id: "sam", name: "Sam", role: "dev", color: "#0f766e", ticket: "SHOP-230" },
@@ -75,7 +75,7 @@ const SCENES = [
   ["Alice's agent works", "Alice asks her agent for saved cards. It gets straight to work, and every change shows up live on the team's map."],
   ["Bob's agent works", "Bob's agent starts on guest checkout at the same time. Nobody is blocked or waiting for approval."],
   ["Collision", "Bob's agent edits getUser(). Blueprint re-checks everyone's work together and Alice's code now breaks. Only those two agents pause."],
-  ["Decide together", "This is a product call, not a coding call. Priya, Alice and Bob settle it on the board."],
+  ["Decide together", "This is a product call, not a coding call. Chris, Alice and Bob settle it on the board."],
   ["Agents adapt", "The decision flows back into both agents and they carry on. A new box appears for the follow-up work."],
   ["Done", "Both branches finish. Boxes turn green as the combined tests pass."],
   ["Drift check", "Alice's agent added something nobody planned. Review becomes plan vs. actual, not a wall of diff."],
@@ -141,7 +141,7 @@ function historyFor(def, scene) {
     add(0, "2026-10-01", "Long-standing code: returns the signed-in buyer, throws if nobody is signed in");
     add(2, "2026-10-23T10:12", "Bob's agent changed it to return null for guests (SHOP-219)", "bob");
     add(3, "2026-10-23T10:12", "Combined type check failed in Alice's checkout/order.ts:47 (SHOP-212 assumed every buyer has an account)");
-    add(5, "2026-10-23T10:20", `Priya decided: ${DECISION_TEXT}`, "priya");
+    add(5, "2026-10-23T10:20", `Chris decided: ${DECISION_TEXT}`, "chris");
     add(6, "2026-10-24T09:00", "Built as planned. Callers must now check for guests.");
     return h;
   }
@@ -151,7 +151,7 @@ function historyFor(def, scene) {
     return h;
   }
   if (def.id === "checkout/SignUpPrompt.ts") {
-    add(5, "2026-10-23T10:21", `Added because Priya decided: ${DECISION_TEXT}`, "alice");
+    add(5, "2026-10-23T10:21", `Added because Chris decided: ${DECISION_TEXT}`, "alice");
     add(6, "2026-10-24T09:00", "Built");
     return h;
   }
@@ -162,7 +162,7 @@ function historyFor(def, scene) {
   const ticket = def.owner === "alice" ? "SHOP-212" : "SHOP-219";
   const name = def.owner === "alice" ? "Alice" : "Bob";
   add(def.from ?? def.changedFrom, "2026-10-23T10:05", `${def.isNew ? "Started" : "Changed"} by ${name}'s agent for ${ticket}`, def.owner);
-  add(5, "2026-10-23T10:21", "Adjusted after Priya's decision on getUser()");
+  add(5, "2026-10-23T10:21", "Adjusted after Chris's decision on getUser()");
   add(6, "2026-10-24T09:00", "Built");
   return h;
 }
@@ -196,7 +196,7 @@ function buildScene(scene) {
   if (scene >= 3) {
     conflicts.push({
       ...CONFLICT,
-      ...(scene >= 5 ? { decision: { optionId: "signup", decidedBy: "priya", text: DECISION_TEXT, at: "2026-10-23T10:20" } } : {}),
+      ...(scene >= 5 ? { decision: { optionId: "signup", decidedBy: "chris", text: DECISION_TEXT, at: "2026-10-23T10:20" } } : {}),
     });
   }
 

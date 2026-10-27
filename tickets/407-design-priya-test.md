@@ -1,4 +1,4 @@
-# 407 · Test Priya's decision panel on a real non-technical person
+# 407 · Test Chris's decision panel on a real non-technical person
 
 **Labels:** `starter` · `demo-pitch` · `design`  
 **Depends on:** [209](209-lucid-panel-decision.md)  
@@ -10,7 +10,7 @@ Scenes 4–5 claim a PM can settle this alone. We should find out if that's true
 ## What to do
 - Find one non-technical person (friend, roommate, family). Show them scene 4 on the board with no explanation.
 - Ask: 'What is this asking you? What would you pick, and why?'
-- Write down, word for word, what confused them, in `docs/verify/priya-test.md`.
+- Write down, word for word, what confused them, in `docs/verify/chris-test.md`.
 
 ## Done when
 - [ ] Notes from one real session

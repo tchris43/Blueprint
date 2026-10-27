@@ -5,7 +5,7 @@
 **Owner:** _unclaimed_
 
 ## Why it matters
-Scene 5: Priya clicks one button inside Lucid, and both agents resume. This is the moment the pitch is built around.
+Scene 5: Chris clicks one button inside Lucid, and both agents resume. This is the moment the pitch is built around.
 
 ## What to do
 - Render one button per option in `renderConflictCard` with `data-option-id`.

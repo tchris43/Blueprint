@@ -5,7 +5,7 @@
 **Owner:** _unclaimed_
 
 ## Why it matters
-Priya's Product view in scenes 4–5: every box in words a non-programmer uses ('Who's buying', not `getUser()`).
+Chris's Product view in scenes 4–5: every box in words a non-programmer uses ('Who's buying', not `getUser()`).
 
 ## What to do
 - Fill every `TODO` in `shared/labels.json`: a short name and a one-line description for each node and column.

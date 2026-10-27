@@ -1,6 +1,6 @@
 # Task 5: Decision buttons talk to the server
 
-**Goal:** clicking an option on the conflict card sends Priya's decision to the server.
+**Goal:** clicking an option on the conflict card sends Chris's decision to the server.
 
 **Mockup:** [scene 5](../../docs/mockup/scene-5-decide.png)
 

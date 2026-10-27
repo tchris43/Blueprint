@@ -5,7 +5,7 @@
 **Owner:** _unclaimed_
 
 ## Why it matters
-Makes the backup board demo-ready: Priya can decide from it, and it updates live from the server.
+Makes the backup board demo-ready: Chris can decide from it, and it updates live from the server.
 
 ## What to do
 - Follow `tasks/board/5-decision-buttons.md`, `6-history-panel.md`, `7-live-websocket.md`.

@@ -9,7 +9,7 @@
 - `board/web/src/App.tsx`: keep `selectedId` in state, set it from React Flow's `onNodeClick`, pass `selectedId` to `toFlowNodes` so the box gets highlighted
 
 **Done when**
-- [ ] Clicking `getUser()` in scene 9 shows all 5 history lines, including Priya's decision
+- [ ] Clicking `getUser()` in scene 9 shows all 5 history lines, including Chris's decision
 - [ ] The panel has a close button with `aria-label="Close history"`
 - [ ] The clicked box has a visible highlight
 - [ ] (Stretch) Write one test for it yourself, copying the style of `task4-conflict-card.test.tsx`

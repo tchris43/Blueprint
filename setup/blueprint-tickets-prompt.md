@@ -65,7 +65,7 @@ Use these as a starting point; split or merge them so each is 1–3 hours.
 
 **design (starter / medium):**
 - **Lucid board look:** colors, legend, spacing. Make 2 versions; the team picks.
-- **Priya's decision panel:** test it on one non-technical person and write down what confused them.
+- **Chris's decision panel:** test it on one non-technical person and write down what confused them.
 - **Plain-English copy** for every node and status.
 
 **verify (starter):**

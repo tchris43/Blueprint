@@ -5,7 +5,7 @@
 **Owner:** _unclaimed_
 
 ## Why it matters
-Scenes 4–5 on the backup board: Priya's Product view and the conflict card with its evidence.
+Scenes 4–5 on the backup board: Chris's Product view and the conflict card with its evidence.
 
 ## What to do
 - Follow `tasks/board/3-scene-switcher-and-toggles.md` then `4-conflict-card.md`.

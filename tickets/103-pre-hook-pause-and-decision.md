@@ -5,7 +5,7 @@
 **Owner:** Taylor
 
 ## Why it matters
-Scenes 4–6: only Alice's and Bob's agents stop, each says why, and both pick up Priya's decision without anyone retyping it.
+Scenes 4–6: only Alice's and Bob's agents stop, each says why, and both pick up Chris's decision without anyone retyping it.
 
 ## What to do
 - Run the hook in real sessions and watch what the agent actually does with a `deny` reason and with `additionalContext`. Does it stop and tell the user? Does it follow the decision?
@@ -22,7 +22,7 @@ New file `server/test/hooks/pre-tool-use.test.ts` (same harness as 101):
 
 ## Done when
 - [ ] All tests above pass
-- [ ] Real run: Alice's agent is blocked mid-task with a clear message, then follows the decision after Priya clicks
+- [ ] Real run: Alice's agent is blocked mid-task with a clear message, then follows the decision after Chris clicks
 - [ ] Sam's agent (a third clone) never pauses
 - [ ] Show the team the result and explain how it works in 2 minutes. You present this piece at the final demo.
 

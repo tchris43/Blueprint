@@ -18,7 +18,7 @@ have to stop.
 ```
 Demo at: __   Now: __   Freeze at: demo - 15 min (after that: fixes only)
 Wow moment: Bob's edit is refused before it's written because it would break Alice's work.
-Only Alice and Bob pause. Priya decides in plain English. Both agents resume.
+Only Alice and Bob pause. Chris decides in plain English. Both agents resume.
 ## Stage log
 ## Decisions
 ## Gaps (what I didn't know -> what the expert did)
@@ -203,7 +203,7 @@ installed. Run the real story.
    `node -e "JSON.parse(require('fs').readFileSync('.claude/settings.local.json','utf8'))"`
    (Most common Windows bug: `C:\Users\...` single backslashes in JSON. Use forward slashes.)
 3. Listed but nothing arrives? Open http://localhost:4000/state and watch the server terminal.
-4. Bob doesn't resume after Priya decides? The decision is delivered by the *pre-hook on the
+4. Bob doesn't resume after Chris decides? The decision is delivered by the *pre-hook on the
    agent's next edit*. If the agent stopped to wait, nothing triggers it. Demo fix: Bob types
    "The team made a decision. Continue." Say it in the pitch as the human staying in the loop.
 **Expert prompt when stuck on a flow:**
@@ -211,7 +211,7 @@ installed. Run the real story.
 > file and function for it. Don't change anything.
 **Critique checklist:** Did he check before guessing? Use /hooks and /state? Pick a reliable fix
 over the "proper" one?
-**Done when:** Bob's edit is refused, both pause, Priya decides, both resume, and the boxes go green.
+**Done when:** Bob's edit is refused, both pause, Chris decides, both resume, and the boxes go green.
 
 ---
 

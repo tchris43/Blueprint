@@ -23,14 +23,14 @@ work breaks silently. Today that's found at code review, at merge, or in product
   Optional layers: plan vs. actual ("drift") and test coverage.
 
 ## The demo story (everything serves this)
-Priya (PM), Alice and Bob (devs) each run Claude Code. Sam (dev) is unaffected. App: `demo-shop`.
+Chris (PM), Alice and Bob (devs) each run Claude Code. Sam (dev) is unaffected. App: `demo-shop`.
 1. SHOP-212 (Alice): save cards. Her agent writes `saveCard(getUser().id, card)` in `checkout/order.ts`.
 2. SHOP-219 (Bob): guest checkout. His agent tries to change `getUser(): User` to `User | null`.
 3. Before that edit lands, the combined check fails, so the edit is refused: `checkout/order.ts:47 error TS2531: Object is possibly 'null'`. Only Alice and Bob pause.
-4. Priya picks on the board: "No, offer guests 'Create an account'" / "Yes, save against a verified email".
+4. Chris picks on the board: "No, offer guests 'Create an account'" / "Yes, save against a verified email".
 5. Both agents get the decision and resume. Done: combined tests pass.
 6. Drift: Alice's agent added `cardCache.ts`, unannounced and untested. It's flagged, and Alice keeps or removes it.
-7. Handoff: clicking `getUser()` shows its full history, including Priya's decision.
+7. Handoff: clicking `getUser()` shows its full history, including Chris's decision.
 
 Screens: `docs/mockup/`. Sample data for every scene: `shared/sample-state.json` (`scene-0`… = screen 1…).
 

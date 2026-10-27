@@ -5,7 +5,7 @@
 **Owner:** _unclaimed_
 
 ## Why it matters
-Scene 4: Priya flips to Product view and every box speaks her language. This is the 'brings in the PM' part of the pitch.
+Scene 4: Chris flips to Product view and every box speaks their language. This is the 'brings in the PM' part of the pitch.
 
 ## What to do
 - Toggle in the panel → message to the extension → re-apply the plan with the new view.
@@ -22,4 +22,4 @@ Add to `test/plan.test.ts`:
 - [ ] Show the team the result and explain how it works in 2 minutes. You present this piece at the final demo.
 
 ## Stretch
-Remember the view per person (Lucid user), so Priya and Alice can see different views at once.
+Remember the view per person (Lucid user), so Chris and Alice can see different views at once.

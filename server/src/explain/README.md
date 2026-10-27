@@ -5,7 +5,7 @@ Scene 4 on the board ([mockup](../../../docs/mockup/scene-4-collision.png)). The
 ```
 checkout/order.ts(47,12): error TS2531: Object is possibly 'null'.
 ```
-Priya (the PM) needs to read:
+Chris (the PM) needs to read:
 > Saved cards assumes every buyer has an account. Guest checkout removes that.
 > **Can guests save cards?**  [No — offer guests "Create an account…"]  [Yes — save it against a verified email]
 
