@@ -1,0 +1,22 @@
+{
+  "id": "",
+  "version": "0.0.0",
+  "extensions": [
+    {
+      "name": "blueprint-board",
+      "title": "blueprint-board",
+      "products": [
+        "chart",
+        "spark"
+      ],
+      "codePath": "editorextensions/blueprint-board/bin/extension.js",
+      "scopes": [
+        "READ",
+        "WRITE",
+        "CUSTOM_UI"
+      ]
+    }
+  ],
+  "shapeLibraries": [],
+  "oauthProviders": []
+}

@@ -1,0 +1,16 @@
+{
+    "scripts": {
+        "create-editor-extension": "pnpm dlx lucid-package create-editor-extension",
+        "create-shape-library": "pnpm dlx lucid-package create-shape-library",
+        "create-data-connector": "pnpm dlx lucid-package create-data-connector",
+        "create-image-shape-library": "pnpm dlx lucid-package create-image-shape-library",
+
+        "test-editor-extension": "pnpm dlx lucid-package test-editor-extension",
+        "test-shape-libraries": "pnpm dlx lucid-package test-shape-libraries",
+        "test": "pnpm dlx lucid-package test-editor-extension",
+
+        "start": "pnpm dlx lucid-package test-editor-extension",
+
+        "bundle":"pnpm dlx lucid-package bundle"
+       }
+}

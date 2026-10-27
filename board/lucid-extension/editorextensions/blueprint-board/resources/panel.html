@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-size: 13px;
+                margin: 0;
+                padding: 12px;
+                color: #1b2733;
+            }
+            h3 {
+                font-size: 11px;
+                text-transform: uppercase;
+                letter-spacing: 0.04em;
+                color: #5c6b7a;
+                margin: 16px 0 6px;
+            }
+            #conn {
+                font-weight: 600;
+            }
+            #conn.up {
+                color: #117a36;
+            }
+            #conn.down {
+                color: #9f1d20;
+            }
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+            li {
+                border-top: 1px solid #e3e8ee;
+                padding: 6px 0;
+                display: flex;
+                justify-content: space-between;
+                gap: 8px;
+            }
+            .paused {
+                color: #9f1d20;
+                font-weight: 600;
+            }
+            .card {
+                border: 1px solid #f0b4b4;
+                border-left: 4px solid #d93a3a;
+                background: #fff7f7;
+                border-radius: 4px;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+            .card.decided {
+                border-color: #b8e0c4;
+                border-left-color: #117a36;
+                background: #f5fbf7;
+            }
+            .card .who {
+                font-size: 11px;
+                color: #5c6b7a;
+                margin-bottom: 6px;
+            }
+            .card .question {
+                font-weight: 600;
+                margin: 8px 0;
+            }
+            .card button {
+                display: block;
+                width: 100%;
+                text-align: left;
+                margin-top: 6px;
+                padding: 8px;
+                border: 1px solid #c5ced8;
+                border-radius: 4px;
+                background: #fff;
+                font: inherit;
+                cursor: pointer;
+            }
+            .card button:hover {
+                border-color: #2b7de9;
+            }
+            .card button:disabled {
+                cursor: default;
+                opacity: 0.6;
+            }
+            details {
+                margin-top: 8px;
+                font-size: 12px;
+            }
+            pre {
+                white-space: pre-wrap;
+                font-size: 11px;
+                background: #f3f5f7;
+                padding: 6px;
+                border-radius: 3px;
+            }
+            .muted {
+                color: #5c6b7a;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="conn" class="down">disconnected</div>
+        <h3>Decisions needed</h3>
+        <div id="conflicts"><p class="muted">No conflicts.</p></div>
+        <h3>Agents</h3>
+        <ul id="agents"></ul>
+
+        <script type="text/javascript">
+            const SERVER = 'http://localhost:4000';
+            const WS_URL = 'ws://localhost:4000/live';
+            // The PM making decisions in the demo. AUDIT: hardcoded; there are no logins.
+            const DECIDER = 'chris';
+
+            const connEl = document.getElementById('conn');
+            const conflictsEl = document.getElementById('conflicts');
+            const agentsEl = document.getElementById('agents');
+
+            function setConnected(up) {
+                connEl.textContent = up ? 'connected to Blueprint' : 'disconnected, retrying...';
+                connEl.className = up ? 'up' : 'down';
+            }
+
+            /** Small helper: make an element with text (never innerHTML, the text comes from agents). */
+            function el(tag, text, className) {
+                const node = document.createElement(tag);
+                if (text !== undefined) node.textContent = text;
+                if (className) node.className = className;
+                return node;
+            }
+
+            function nameOf(state, id) {
+                const person = (state.participants || []).find((p) => p.id === id);
+                return person ? person.name : id;
+            }
+
+            async function decide(conflictId, optionId, buttons) {
+                buttons.forEach((b) => (b.disabled = true));
+                try {
+                    const res = await fetch(SERVER + '/decision', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({conflictId: conflictId, optionId: optionId, decidedBy: DECIDER}),
+                    });
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                    // The server broadcasts the new state, which re-renders this card as decided.
+                } catch (e) {
+                    console.error('[blueprint-panel] decision failed:', e);
+                    buttons.forEach((b) => (b.disabled = false));
+                }
+            }
+
+            function renderConflict(state, conflict) {
+                const card = el('div', undefined, conflict.decision ? 'card decided' : 'card');
+                const who = conflict.between.map((id) => nameOf(state, id)).join(' + ');
+                card.appendChild(el('div', who + (conflict.decision ? ' · decided' : ' · paused'), 'who'));
+                card.appendChild(el('div', conflict.plainSummary));
+
+                if (conflict.decision) {
+                    card.appendChild(el('div', 'Decided by ' + nameOf(state, conflict.decision.decidedBy) + ':', 'question'));
+                    card.appendChild(el('div', conflict.decision.text));
+                } else {
+                    card.appendChild(el('div', conflict.question, 'question'));
+                    const buttons = conflict.options.map((option) => {
+                        const button = el('button', option.label);
+                        button.addEventListener('click', () => decide(conflict.id, option.id, buttons));
+                        card.appendChild(button);
+                        return button;
+                    });
+                }
+
+                const ev = conflict.evidence;
+                if (ev) {
+                    const why = el('details');
+                    why.appendChild(el('summary', 'Why was this flagged?'));
+                    why.appendChild(el('div', ev.affectedFile + ':' + ev.affectedLine, 'muted'));
+                    why.appendChild(el('pre', ev.compilerError));
+                    if (ev.diff) why.appendChild(el('pre', ev.diff));
+                    card.appendChild(why);
+                }
+                return card;
+            }
+
+            function render(state) {
+                conflictsEl.innerHTML = '';
+                const conflicts = state.conflicts || [];
+                if (conflicts.length === 0) {
+                    conflictsEl.appendChild(el('p', 'No conflicts.', 'muted'));
+                }
+                conflicts.forEach((c) => conflictsEl.appendChild(renderConflict(state, c)));
+
+                agentsEl.innerHTML = '';
+                (state.participants || [])
+                    .filter((p) => p.role === 'dev')
+                    .forEach((p) => {
+                        const status = (state.agentStatus || {})[p.id] || 'idle';
+                        const li = el('li');
+                        li.appendChild(el('span', p.name + (p.ticket ? ' · ' + p.ticket : '')));
+                        li.appendChild(el('span', status, status === 'paused' ? 'paused' : 'muted'));
+                        agentsEl.appendChild(li);
+                    });
+            }
+
+            function connect() {
+                const socket = new WebSocket(WS_URL);
+                socket.addEventListener('open', () => setConnected(true));
+                socket.addEventListener('message', (event) => {
+                    try {
+                        const msg = JSON.parse(event.data);
+                        if (msg.type !== 'state') return;
+                        render(msg.state);
+                        // Every message is forwarded: they're discrete events, so never dedupe them.
+                        parent.postMessage({type: 'state', state: msg.state}, '*');
+                    } catch (e) {
+                        console.warn('[blueprint-panel] bad message:', event.data, e);
+                    }
+                });
+                socket.addEventListener('error', (e) => console.warn('[blueprint-panel] websocket error:', e));
+                // Covers both a failed first connect and a server that restarts mid-demo.
+                socket.addEventListener('close', () => {
+                    setConnected(false);
+                    setTimeout(connect, 2000);
+                });
+            }
+
+            connect();
+        </script>
+    </body>
+</html>
