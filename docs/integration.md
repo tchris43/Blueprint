@@ -4,7 +4,7 @@ Wiring these in is tickets 402 (explain) and 605 (drift, coverage), after each m
 with an `INTEGRATION(<module>)` comment, so `grep -rn INTEGRATION server/src` finds them even after
 line numbers move.
 
-## drift → `server/src/index.ts:65`, in `POST /edits`
+## drift → `server/src/index.ts:118`, in `POST /edits`
 Right after the participant's overlay is saved:
 ```ts
 store.board.drift = detectDrift(
@@ -15,7 +15,7 @@ store.board.drift = detectDrift(
 To finish: carry over `resolved` from earlier drift entries (match by participant + file) so a
 "keep" doesn't reappear, and set `nodeId` once the code map exists.
 
-## explain → `server/src/index.ts:89`, in `POST /edits`, per new conflict
+## explain → `server/src/index.ts:85`, in `checkAndRecord` (shared by `/edits` and `/check`), per new conflict
 Replace the `isDemoConflict(...) ? DEMO_FALLBACK : genericFallback(...)` line with:
 ```ts
 const plain = await explainConflict(evidence, labels);

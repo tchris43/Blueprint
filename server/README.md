@@ -8,7 +8,8 @@ Core engine: Taylor. `src/drift`, `src/coverage`, `src/explain` are the `modules
 | File | What it does |
 |---|---|
 | `src/combinedCheck.ts` | Core. Type-checks base + A, base + B, base + A + B in temp folders. An error only in A + B is a conflict. |
-| `src/index.ts` | Endpoints + `/live` websocket |
+| `src/index.ts` | Endpoints + `/live` websocket (exports `app`/`server` for tests) |
+| `src/main.ts` | Starts the server (`pnpm server`) |
 | `src/store.ts` | In-memory state |
 | `src/drift/`, `src/coverage/`, `src/explain/` | Modules (tickets 401, 603, 604). Plug-in points: `docs/integration.md` |
 | `test/fixtures/` | Alice's and Bob's in-progress demo edits |

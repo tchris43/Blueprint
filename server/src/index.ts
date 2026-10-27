@@ -10,8 +10,8 @@ import type {
   LiveMessage,
   StatusResponse,
 } from "../../shared/contract";
-import { runCombinedCheck } from "./combinedCheck";
-import { DEMO_SHOP_DIR, PORT } from "./config";
+import { runCombinedCheck, type Overlay } from "./combinedCheck";
+import { DEMO_SHOP_DIR } from "./config";
 import { DEMO_FALLBACK, genericFallback, isDemoConflict } from "./explain/fallbacks";
 import {
   markDecisionSeen,
@@ -23,7 +23,8 @@ import {
   unseenDecisionFor,
 } from "./store";
 
-const app = express();
+// Exported so tests can run the server in-process; src/main.ts is what listens.
+export const app = express();
 app.use(express.json({ limit: "5mb" }));
 app.use((_req, res, next) => {
   // The board runs on another port (Vite / Lucid panel), so allow cross-origin reads.
@@ -34,7 +35,7 @@ app.use((_req, res, next) => {
 
 // ---- live board updates ----
 
-const server = createServer(app);
+export const server = createServer(app);
 const wss = new WebSocketServer({ server, path: "/live" });
 
 function broadcast(): void {
@@ -54,21 +55,13 @@ app.get("/state", (_req, res) => {
   res.json(store.board);
 });
 
-/** Called by the PostToolUse hook after every edit. */
-app.post("/edits", async (req, res) => {
-  const { participant, files } = req.body as EditsRequest;
-  const overlay = store.overlays.get(participant) ?? { participant, files: {} };
-  for (const file of files) {
-    overlay.files[file.path] = file.content;
-  }
-  store.overlays.set(participant, overlay);
-  // INTEGRATION(drift): store.board.drift = detectDrift(intentsAsLists, editedFilesAsLists)
-  // See docs/integration.md.
-  if (store.board.agentStatus[participant] !== "paused") setAgentStatus(participant, "working");
-
-  // TODO(Taylor): update node statuses/history from the overlay (needs the code map).
+/**
+ * Run the combined check of `overlay` against every teammate's in-progress work, and record any
+ * new conflict (pausing both people). Shared by /edits (a saved edit) and /check (a proposed one).
+ */
+async function checkAndRecord(participant: string, overlay: Overlay): Promise<void> {
   // AUDIT: checks run concurrently if two edits land at once; fine for a 2-agent demo,
-  // could create duplicate conflicts under load. Add a queue if that shows up.
+  // could create duplicate conflicts under load. Add a queue if that shows up (ticket 105).
   for (const other of store.overlays.values()) {
     if (other.participant === participant) continue;
     const result = await runCombinedCheck(DEMO_SHOP_DIR, overlay, other);
@@ -106,11 +99,48 @@ app.post("/edits", async (req, res) => {
     }
     // TODO(Taylor): turn result.sameFile into "same_file" conflicts.
   }
+}
 
-  broadcast();
-  // The hook treats this reply as data only.
+/** The hooks treat this reply as data only. */
+function pausedReply(participant: string) {
   const conflict = openConflictFor(participant);
-  res.json({ paused: Boolean(conflict), conflict: conflict ? { id: conflict.id, summary: conflict.plainSummary } : null });
+  return { paused: Boolean(conflict), conflict: conflict ? { id: conflict.id, summary: conflict.plainSummary } : null };
+}
+
+/** Called by the PostToolUse hook after every edit: stores the saved files, then checks them. */
+app.post("/edits", async (req, res) => {
+  const { participant, files } = req.body as EditsRequest;
+  const overlay = store.overlays.get(participant) ?? { participant, files: {} };
+  for (const file of files) {
+    overlay.files[file.path] = file.content;
+  }
+  store.overlays.set(participant, overlay);
+  // INTEGRATION(drift): store.board.drift = detectDrift(intentsAsLists, editedFilesAsLists)
+  // See docs/integration.md.
+  if (store.board.agentStatus[participant] !== "paused") setAgentStatus(participant, "working");
+
+  // TODO(Taylor): update node statuses/history from the overlay (needs the code map).
+  await checkAndRecord(participant, overlay);
+  broadcast();
+  res.json(pausedReply(participant));
+});
+
+/**
+ * Called by the PreToolUse hook BEFORE an edit lands (ticket 102). Checks the proposed files on
+ * top of this person's earlier changes, without storing them: the edit hasn't happened yet, and
+ * if it's denied it never will.
+ */
+app.post("/check", async (req, res) => {
+  const { participant, files } = req.body as EditsRequest;
+  const saved = store.overlays.get(participant)?.files ?? {};
+  const proposed: Overlay = { participant, files: { ...saved } };
+  for (const file of files) {
+    proposed.files[file.path] = file.content;
+  }
+  const conflictsBefore = store.board.conflicts.length;
+  await checkAndRecord(participant, proposed);
+  if (store.board.conflicts.length !== conflictsBefore) broadcast();
+  res.json(pausedReply(participant));
 });
 
 /** Called by the PreToolUse hook before every edit. */
@@ -177,7 +207,3 @@ app.post("/demo/scene", (req, res) => {
   res.json({ ok: true, title: scene.title });
 });
 
-server.listen(PORT, () => {
-  console.log(`Blueprint server on http://localhost:${PORT}  (ws://localhost:${PORT}/live)`);
-  console.log(`Checking against demo-shop at ${DEMO_SHOP_DIR}`);
-});
