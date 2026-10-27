@@ -57,6 +57,12 @@ describe.skipIf(!existsSync(join(DEMO_SHOP_DIR, "node_modules")))("POST /check",
     expect(store.board.agentStatus.alice).toBe("paused");
     expect(store.board.agentStatus.bob).toBe("paused");
     expect(readFileSync(bobUserTs, "utf8")).toBe(before); // the edit never touched disk
+    // The board's boxes for both sides of the break turn red.
+    expect(conflict.nodeIds).toEqual(["account/user.ts#getUser", "checkout/order.ts#placeOrder"]);
+    const statusOf = (id: string) => store.board.nodes.find((n) => n.id === id)?.status;
+    expect(statusOf("account/user.ts#getUser")).toBe("conflict");
+    expect(statusOf("checkout/order.ts#placeOrder")).toBe("conflict");
+    expect(statusOf("payments/charge.ts#chargeCard")).toBe("existing");
   }, 60_000);
 
   it("allows the same proposal when Alice hasn't written her line, and records nothing", async () => {
@@ -80,5 +86,6 @@ describe.skipIf(!existsSync(join(DEMO_SHOP_DIR, "node_modules")))("POST /check",
 
     expect(retry.paused).toBe(false);
     expect(store.board.conflicts).toHaveLength(1);
+    expect(store.board.nodes.find((n) => n.id === "account/user.ts#getUser")?.status).toBe("resolved");
   }, 60_000);
 });

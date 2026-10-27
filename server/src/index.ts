@@ -8,6 +8,7 @@ import type {
   EditsRequest,
   IntentRequest,
   LiveMessage,
+  NodeStatus,
   StatusResponse,
 } from "../../shared/contract";
 import { runCombinedCheck, type Overlay } from "./combinedCheck";
@@ -56,6 +57,23 @@ app.get("/state", (_req, res) => {
 });
 
 /**
+ * The map boxes on each side of a break: the changed function, and the box for the file that no
+ * longer compiles. Stand-in for ticket 202's real mapping.
+ * AUDIT: matches by "#symbol" suffix and by file; a symbol or file with no box gives fewer ids.
+ */
+function nodeIdsFor(evidence: Conflict["evidence"]): string[] {
+  const changed = store.board.nodes.find((n) => n.id.endsWith(`#${evidence.changedSymbol}`));
+  const affected = store.board.nodes.find((n) => n.file === evidence.affectedFile);
+  return [changed, affected].filter((n) => n !== undefined).map((n) => n.id);
+}
+
+function setNodeStatus(nodeIds: string[], status: NodeStatus): void {
+  for (const node of store.board.nodes) {
+    if (nodeIds.includes(node.id)) node.status = status;
+  }
+}
+
+/**
  * Run the combined check of `overlay` against every teammate's in-progress work, and record any
  * new conflict (pausing both people). Shared by /edits (a saved edit) and /check (a proposed one).
  */
@@ -89,11 +107,12 @@ async function checkAndRecord(participant: string, overlay: Overlay): Promise<vo
         id: `c${store.board.conflicts.length + 1}`,
         kind: "semantic",
         between: [found.changedBy, found.affected],
-        nodeIds: [], // TODO(Taylor): map changedSymbol + affected file/line to node ids
+        nodeIds: nodeIdsFor(evidence),
         evidence,
         ...plain,
       };
       store.board.conflicts.push(conflict);
+      setNodeStatus(conflict.nodeIds, "conflict");
       setAgentStatus(found.changedBy, "paused");
       setAgentStatus(found.affected, "paused");
     }
@@ -173,6 +192,7 @@ app.post("/decision", (req, res) => {
   }
   conflict.decision = { optionId, decidedBy, text: option.label, at: new Date().toISOString() };
   conflict.between.forEach((participant) => setAgentStatus(participant, "resumed"));
+  setNodeStatus(conflict.nodeIds, "resolved");
   broadcast();
   res.json({ ok: true });
 });
